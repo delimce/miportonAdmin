@@ -2,7 +2,6 @@
 
 function _login() {
 
-
     $user = Form::getVar("user", $_POST);
     ////logueandose
     if (!empty($user)) {
@@ -47,10 +46,8 @@ function _login() {
     } else { ///no se ha logueado
         $form = new Form();
 
-        // $empresas = $form->dbComboMobile("empresa", FactoryDao::getEmpresas(), "nombre", "id");
-
-        $data['siteTitle'] = 'Sistema de pedidos';
-        $data['body'][] = View::do_fetch(VIEW_PATH . 'main/login_form.php', array('empresa' => $empresas));
-        View::do_dump(LAYOUT_PATH . 'layoutMobile.php', $data);
+        $data['siteTitle'] = 'MiPorton.net   ';
+        $data['body'][] = View::do_fetch(VIEW_PATH . 'main/login_form.php');
+        View::do_dump(LAYOUT_PATH . 'loginLayout.php', $data);
     }
 }

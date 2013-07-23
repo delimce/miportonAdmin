@@ -6,9 +6,7 @@
  * Time: 6:39 PM
  * To change this template use File | Settings | File Templates.
  */
-
 include_once 'config/setup.php';
-include_once 'lang/spanish.php'; ///idioma
 
 Security::initSession();
 

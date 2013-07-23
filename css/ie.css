@@ -41,3 +41,10 @@ fieldset textarea {
 margin-left: -10px;
 }
 
+div.error {
+    padding: 2px 5px;
+    text-align: right;
+    color: red;
+
+}
+
