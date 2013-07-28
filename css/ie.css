@@ -48,3 +48,20 @@ div.error {
 
 }
 
+div.warning{
+
+display: block;
+width: 95%;
+margin: 20px 3% 0 3%;
+margin-top: 20px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+background: #F5F3BA url(../images/template/icn_alert_warning.png) no-repeat;
+background-position: 10px 10px;
+border: 1px solid #C7A20D;
+color: #796616;
+padding: 10px 0;
+text-indent: 40px;
+font-size: 14px;
+}

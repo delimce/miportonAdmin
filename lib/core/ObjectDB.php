@@ -234,7 +234,7 @@ class ObjectDB extends Database {
         return $this->lastId;
     }
 
-    /*
+    /**
      * trae el resultado (vector asociativo) con los campos
      * de 1 registro (analogo: simple_db)
      */

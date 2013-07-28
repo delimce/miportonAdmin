@@ -9,17 +9,8 @@ function _login() {
         $db = new ObjectDB();
 
         $pass = Form::getVar("clave", $_POST);
-        $nombre = Form::getVar("empresa", $_POST);
 
-
-        ////validar que introdujo bien la empresa
-        $db->setSql(FactoryDao::getIdEmpresa($nombre));
-        $db->getResultFields();
-        $cuenta = $db->getField("idEmp");
-
-        if ($cuenta > 0) {
-
-            $db->setSql(FactoryDao::getLoginData($cuenta, $user, $pass));
+            $db->setSql(FactoryDao::getLoginData($user, $pass));
             $db->getResultFields();
 
             if ($db->getNumRows() > 0) {
@@ -27,10 +18,7 @@ function _login() {
                 ////guardando variables de sesion 
                 Security::setUserID($db->getField("id"));
                 Security::setUserName($db->getField("nombre"));
-                Security::setUserProfileID($db->getField("perfil_id"));
                 Security::setUserProfileName($db->getField("profile"));
-                Security::setCuentaID($cuenta);
-                Security::setSessionVar("CUENTANAME", $db->getField("cuenta"));
 
                 echo $db->getField("id");
 
@@ -38,9 +26,7 @@ function _login() {
             } else {
                 echo 0;
             }
-        } else {
-            echo 0;
-        }
+       
 
         $db->close(); //cerrando conexion
     } else { ///no se ha logueado

@@ -9,30 +9,21 @@
  */
 class FactoryDao {
 
-    static public function getEmpresas() {
 
-        return "select id,nombre from tbl_cuenta where activo = 1";
+/**
+ * para hacer login de usuario al iniciar programa
+ * @param type $user
+ * @param type $pass
+ * @return type
+ */
+    static public function getLoginData($user, $pass) {
+
+        return "call sp_login('$user', '$pass')";
     }
 
-    static public function getIdEmpresa($nombre) {
+    static public function getModuleAccess($modulo, $usuario, $cuenta) {
 
-        return "select ifnull(id,0) as idEmp from tbl_cuenta where nombre = trim(lower('$nombre')) ";
-    }
-
-    static public function getLoginData($cuenta, $user, $pass) {
-
-        return "SELECT
-                    u.id,
-                    u.perfil_id,
-                    u.nombre,
-                    (select nombre from tbl_cuenta where id = $cuenta) as cuenta,
-                    pe.nombre AS `profile`
-                    FROM
-                    tbl_usuario AS u
-                    INNER JOIN tbl_perfil AS pe ON u.perfil_id = pe.id
-                    WHERE
-                    u.`user` = '$user' AND u.`password` = md5('$pass') AND
-                    (u.activo = 1 AND u.borrado=0 )";
+        return "call sp_verificar_permiso($modulo,$usuario,$cuenta)";
     }
 
     static public function getUsersList($myId = false) {
@@ -99,88 +90,13 @@ class FactoryDao {
 
     static public function getModuleListLobi() {
 
-        $query = "SELECT distinct
-                m.id,
-                m.nombre,
-                m.url,
-                m.icono,
-                m.descripcion
-                FROM
-                tbl_modulo AS m
-                INNER JOIN tbl_permiso AS p ON m.id = p.modulo_id
-                WHERE
-                p.usuario_id = " . Security::getUserID() . " AND
-                p.cuenta_id = " . Security::getCuentaID();
+        $userid = Security::getUserID();
+        $cuentaid = Security::getCuentaID();
 
-        return $query.="  ORDER BY m.orden ASC";
+        return "call sp_usuario_modulos($userid,$cuentaid)";
     }
 
-    //////clientes
-    static public function getClientList() {
-        return "SELECT
-                c.id,
-                c.nombre,
-                g.nombre as grupo,
-                c.cif
-                FROM
-                tbl_cliente AS c
-                INNER JOIN tbl_grupo_cliente AS g ON g.id = c.grupo_id
-                order by nombre";
-    }
-
-    /*
-     * sucursales
-     */
-
-    public static function getSucursalList() {
-
-        return "SELECT
-                c.nombre as cliente,
-                s.id,
-                s.nombre
-                FROM
-                tbl_cliente_sucursal AS s
-                INNER JOIN tbl_cliente AS c ON s.cliente_id = c.id
-                order by nombre";
-    }
-
-    /*
-     * productos
-     */
-
-    public static function getProductList() {
-        return "SELECT
-                    p.nombre,
-                    p.codigo,
-                    p.id,
-                    g.nombre as grupo
-                    FROM
-                    mantra2_db.tbl_grupo_producto AS g
-                    INNER JOIN mantra2_db.tbl_producto AS p ON p.grupo_id = g.id
-                    ";
-    }
-
-    public static function getVendorsList($cuentaid, $id = false) {
-        $query = "SELECT
-                u.id,
-                v.id as id2,
-                u.nombre,
-                u.email,
-                v.comision,
-                v.comision2,
-                v.comision3,
-                v.comision4
-                FROM
-                tbl_usuario AS u
-		INNER JOIN tbl_permiso as p ON p.usuario_id = u.id and p.modulo_id = 4 and p.cuenta_id = $cuentaid
-		-- se trae los usuarios con el modulo de ventas activado de la cuenta solicitada 
-                LEFT JOIN tbl_vendedor AS v ON v.usuario_id = u.id and v.cuenta_id = $cuentaid ";
-
-        if ($id)
-            $query.=" where u.id = " . $id;
-
-        return $query.=" order by u.nombre";
-    }
+  
 
     /*
      * funciones para fechas consulta y grabacion 

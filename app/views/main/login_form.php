@@ -14,6 +14,18 @@
             errorElement: "div"
         });
 
+
+        $("#user").click(function() {
+
+            $("#mensaje").html('&nbsp;');
+        });
+
+        $("#clave").click(function() {
+
+            $("#mensaje").html('&nbsp;');
+        });
+
+
         $("#submit").click(function() {
 
             //validando
@@ -32,7 +44,7 @@
                     if (data > 0) {
                         $(location).attr('href', '<?= Front::myUrl('main/index'); ?>');
                     } else {
-                        alert('clave ó usuario incorrectos');
+                        $("#mensaje").html('<div class="warning">Error de usuario ó contraseña</div>');
 
                     }
                 }
@@ -44,14 +56,14 @@
 </script>
 
 
-<section style="width:400px; text-align:center">
+<section style="max-width: 450px;">
 
     <!-- end of stats article --><!-- end of content manager article --><!-- end of messages article -->
 
     <article class="module width_full">
 
         <form name="form1" id="form1">
-            <h1><img src="<?= Front::myUrl('images/minilogo.png') ?>" width="201" height="72"></h1>
+            <h1><img src="<?= Front::myUrl('images/minilogo.gif') ?>"></h1>
             <div class="module_content">
                 <fieldset>
                     <label>Usuario:</label>
@@ -59,19 +71,25 @@
                 </fieldset>
                 <fieldset>
                     <label>Clave:</label>
-                    <input id="clave" name="clave" type="password">
+                    <input id="clave" onclick="" name="clave" type="password">
                 </fieldset>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
+
+                <div id="mensaje">&nbsp;</div>
+
+                <br>
+                <input id="submit" type="submit" value="Entrar" style="width:100px;" class="alt_btn">
+
             </div>
             <footer>
-                <div class="submit_link">
-                    <input id="submit" type="submit" value="Entrar" class="alt_btn">
-                    <input name="Reset" type="reset" value="Reset">
+                <div style="margin-top:8px;" align="center">
+                    ©&nbsp;<?= date("Y") . " todos los derechos reservados" ?> 
                 </div>
             </footer>
 
         </form>
     </article>
+
+
+
 
 </section>

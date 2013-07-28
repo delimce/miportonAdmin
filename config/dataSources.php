@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by IntelliJ IDEA.
  * User: delimce
@@ -6,7 +7,6 @@
  * Time: 10:31 AM
  * To change this template use File | Settings | File Templates.
  */
-
 $dataSources = array();
 
 
@@ -18,9 +18,10 @@ $dt1 = array("dbms" => "Mysql",
     "host" => "userver",
     //  "port" => "3306",
     //  "schema" => "prueba",
-    "database" => "mantra2admin",
+    "database" => "miporton_db",
     "user" => "root",
-    "pwd" => "delimce",
+    "pwd" => "'9&5L:6UC90`` `",
+    "encrypt" => true
 );
 
 ////otro dataSource
@@ -35,18 +36,9 @@ $dt2 = array("dbms" => "Mysql",
 );
 
 
-$dt3 = array("dbms" => "Mysql",
-    "host" => "50.56.209.170",
-    //  "port" => "3306",
-    //  "schema" => "prueba",
-    "database" => "jmacta",
-    "user" => "jmatca",
-    "pwd" => "Hfpyopwebvs",
-);
-
 
 ////asignacion
-$dataSources["mantra2admin"] = $dt1;
+$dataSources["miporton"] = $dt1;
 $dataSources["lamerienda"] = $dt2;
 
 
