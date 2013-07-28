@@ -5,8 +5,8 @@ html, div, map, dt, isindex, form, header, aside, section, section, article, foo
 } 
 
 html, body {
+margin:0;
 height: 100%;
-margin: 0;
 padding: 0;
 font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
 background: #F8F8F8;
@@ -36,15 +36,16 @@ text-decoration: underline;
 header#header {
 height: 55px;
 width: 100%;
-background: #222222 url(../images/template/header_bg.png) repeat-x;
+background-color:#fff;
 }
 
-header#header h1.site_title, header#header h2.section_title {
-float: left;
+h1.site_title, header#header h2.section_title {
 margin: 0;
+position:relative;
+float:left;
 font-size: 22px;
 display: block;
-width: 23%;
+width: 20%;
 height: 55px;
 font-weight: normal;
 text-align: left;
@@ -63,7 +64,7 @@ header#header h2.section_title {
 text-align: center;
 text-indent: 4.5%;
 width: 68%;
-background: url(../images/template/header_shadow.png) no-repeat left top;
+background-color:#fff;
 }
 
 .btn_view_site {
@@ -96,40 +97,57 @@ background: #F1F1F4 url(../images/template/secondary_bar.png) repeat-x;
 }
 
 section#secondary_bar .user {
-float: left;
+float: right;
 width: 23%;
-height: 38px;
 }
 
-.user p {
-margin: 0;
-padding: 0;
-color: #666666;
-font-weight: bold;
-display: block;
-float: left;
-width: 85%;
-height: 35px;
-line-height: 35px;
-text-indent: 25px;
-text-shadow: 0 1px 0 #fff;
-background: url(../images/template/icn_user.png) no-repeat center left;
-margin-left: 6%;
+.user_name {
+	line-height: 35px;
+	text-indent: 25px;
+	text-shadow: 0 1px 0 #fff;
+	background: url(../images/template/icn_user.png) no-repeat center left;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
 }
 
-.user a {
+.opcion_user{
+	color: #666666;
+	display: block;
+	position:relative;
+	float: right;
+	width: 20%;
+	height: 35px;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+	
+}
+
+.logout_user {
+	line-height: 20px;
+	text-indent: 25px;
+	text-shadow: 0 1px 0 #fff;
+	background: url(../images/template/icn_logout.png) no-repeat center left;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+.opcion_user a {
 text-decoration: none;
 color: #666666}
 
-.user a:hover {
+.opcion_user a:hover {
 color: #77BACE;
 }
 
-.user a.logout_user {
-float: left;
+.opcion_user a.logout_user {
 display: block;
+position:relative;
+float:right;
 width: 16px;
-height: 35px;
+height: 30px;
 text-indent: -5000px;
 background: url(../images/template/icn_logout.png) center no-repeat;
 }
@@ -193,10 +211,10 @@ margin: 0 5px;
 /* Sidebar */
 
 aside#sidebar {
-width: 23%;
+width: 16%;
 background: #E0E0E3 url(../images/template/sidebar.png) repeat;
 float: left;
-min-height: 500px;
+min-height: 572px;
 margin-top: -4px;
 }
 
@@ -363,7 +381,7 @@ margin-top: 20%;
 
 section#main {
 width: 77%;
-min-height: 500px;
+min-height: 520px;
 background: url(../images/template/sidebar_shadow.png) repeat-y left top;
 float: left;
 margin-top: -2px;

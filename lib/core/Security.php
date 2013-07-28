@@ -86,40 +86,36 @@ class Security {
     static public function logOff() {
 
         Security::destroySession();
-        Front::redirect("main/login");
+        Front::redirectTop("main/login");
     }
 
-    /*
-     * verifica si es el administrador del sistema quien ingresa, basado en el perfil_id requerido
-     */
 
-    static public function isSessionAdmin($adminValue) {
-
-        Security::sessionActive();
-        if (Security::getUserProfileID() != $adminValue) {
-            Security::logOff();
-        }
-    }
-
-    /*
+    /**
      * verifica si el usuario tiene permiso para entrar al modulo (en caso de que no sea administrador)
-     * se debe pasar el id del modulo en cuestion
+     * se debe pasar el nombre del modulo en cuestion
      */
 
-    static public function hasPermissionTo($modulo) {
+    static public function hasPermissionTo($profile) {
 
         Security::sessionActive();
 
-
-        $db2 = new ObjectDB();
-        $db2->setSql(FactoryDao::getModuleAccess($modulo, Security::getUserID(), Security::getCuentaID()));
-        $db2->executeQuery();
-        $db2->close();
-        if ($db2->getNumRows() == 0)
-            Front::redirect("error/noAccess");
+        if (Security::getUserProfileName() != $profile) {
+            Security::logOff();
+        }    
+       
+    }
+    
+    /**
+     * verifica si el perfil del usuario es igual al solicitado
+     * @param type $profile
+     * @return type
+     */
+    static public function isProfileName($profile){
+        
+        return (Security::getUserProfileName()==$profile)?true:false;
     }
 
-    /*
+    /**
      * para revisar si hay una session iniciada
      */
 
