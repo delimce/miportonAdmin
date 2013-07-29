@@ -32,7 +32,7 @@ function _login() {
     } else { ///no se ha logueado
         $form = new Form();
 
-        $data['siteTitle'] = 'MiPorton.net   ';
+        $data['siteTitle']  = Security::getSessionVar("TITTLE").'Login';
         $data['body'][] = View::do_fetch(VIEW_PATH . 'main/login_form.php');
         View::do_dump(LAYOUT_PATH . 'loginLayout.php', $data);
     }

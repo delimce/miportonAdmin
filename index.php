@@ -10,6 +10,9 @@ include_once 'config/setup.php';
 
 Security::initSession();
 
+/////variable de titulo del sitio
+Security::setSessionVar("TITTLE", "MiPorton.net Admin - ");
+
 //===============================================
 // Start the controller
 //===============================================
