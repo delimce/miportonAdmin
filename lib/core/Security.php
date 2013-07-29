@@ -86,7 +86,7 @@ class Security {
     static public function logOff() {
 
         Security::destroySession();
-        Front::redirectTop("main/login");
+        Front::redirect("main/login");
     }
 
 

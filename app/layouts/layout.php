@@ -36,8 +36,15 @@
                     $(activeTab).fadeIn(); //Fade in the active ID content
                     return false;
                 });
+                
+                
+                
+                
 
             });
+            
+                        
+            
         </script>
         <script type="text/javascript">
             $(function() {
@@ -51,7 +58,7 @@
     <body>
         <header id="header">
 
-            <h1 class="site_title"><img style="margin-top:10px;" src="<?= Front::myUrl('images/logoadmin.gif') ?>" width="169" height="63"></h1>
+            <h1 class="site_title"><img style="margin-top:10px;" onclick="location.replace('<?=Front::myUrl("main/index")?>')" src="<?= Front::myUrl('images/logoadmin.gif') ?>" width="169" height="63"></h1>
             <div class="opcion_user">
                 <p class="user_name"><?= Security::getUserName() ?></p>
                 <p class="logout_user"><a href="<?= Front::myUrl('main/logout') ?>">Cerrar Sesión</a></p>
@@ -68,10 +75,11 @@
         <aside id="sidebar" class="column">
             <h3>Mi Cuenta</h3>
             <ul class="toggle">
-                 <li class="icn_profile"><a href="#">Datos</a></li>
+                 <li class="icn_profile"><a href="<?= Front::myUrl('cuenta/datos'); ?>">Datos</a></li>
                 <li class="icn_edit_article"><a href="#">Edit Articles</a></li>
                 <li class="icn_categories"><a href="#">Categories</a></li>
                 <li class="icn_tags"><a href="#">Tags</a></li>
+                 <li class="icn_jump_back"><a href="<?= Front::myUrl('main/logout') ?>">Salir</a></li>
             </ul>
 
             <?php if (Security::isProfileName("admin")) { ?>
@@ -82,7 +90,7 @@
                     <li class="icn_settings"><a href="#">Opciones</a></li>
                     <li class="icn_categories"><a href="#">Comandos SMS</a></li>
                     <li class="icn_security"><a href="#">Seguridad</a></li>
-                    <li class="icn_jump_back"><a href="<?= Front::myUrl('main/logout') ?>">Salir</a></li>
+                   
                 </ul>
             <?php } ?>
 
@@ -95,7 +103,7 @@
 
         <section id="main" class="column"><!-- end of stats article --><!-- end of content manager article --><!-- end of messages article -->
 
-            <?php echo (isset($body) && is_array($body)) ? implode("\n", $body) : '' ?>
+            <?php  echo (isset($body) && is_array($body)) ? implode("\n", $body) : '' ?>
 
             <p>&nbsp;</p>
 
