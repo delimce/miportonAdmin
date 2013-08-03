@@ -12,20 +12,20 @@ function _save() {
         case "admin":
             $tabla = 'tbl_admin';
             break;
-        case "ditribuidor":
-            $tabla = 'tbl_distribuidor';
+        case "edificio":
+            $tabla = 'tbl_edificio_admin';
             break;
         default :
-            $tabla = 'tbl_edificio_admin';
+            $tabla = 'tbl_distribuidor';
             break;
     }
 
     $db->setTable($tabla);
 
-    $db->getTableFields("password", "id = " . Security::getUserID());
+    $db->getTableFields("clave", "id = " . Security::getUserID());
     $clave2 = Form::getvar("clave", $_POST);
-    if ($db->getField("password") != $clave2)
-        $_POST['r0password'] = md5($clave2);
+    if ($db->getField("clave") != $clave2)
+        $_POST['r0clave'] = md5($clave2);
     /////////////
 
     $db->dataUpdate("r", "0", $tabla, $_POST, "id = " . Security::getUserID());
@@ -35,7 +35,7 @@ function _save() {
     ////cambiar variable de sesion
     Security::setUserName(Form::getVar("r0nombre"));
 
-    echo 'datos actualizados con exito';
+    echo '<h4 class="alert_success">Edición efectuada con éxito</h4>';
 }
 
 ?>

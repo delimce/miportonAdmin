@@ -34,7 +34,7 @@ class ObjectDB extends Database {
         return $this->table;
     }
 
-    /*
+    /**
      * asigna un valor y clave a la lista de campos
      */
 
@@ -42,7 +42,7 @@ class ObjectDB extends Database {
         $this->fields[$key] = $val;
     }
 
-    /*
+    /**
      * retorna un valor a partir de una clave del campo
      */
 
@@ -50,7 +50,7 @@ class ObjectDB extends Database {
         return $this->fields[$key];
     }
 
-    /*
+    /**
      * retorna toda la data del vector $fields
      */
 
@@ -58,7 +58,7 @@ class ObjectDB extends Database {
         print_r($this->fields);
     }
 
-    /*
+    /**
      * agrega campos al enunciado del query
      */
 
@@ -254,7 +254,7 @@ class ObjectDB extends Database {
         $this->freeResult();
     }
 
-    /*
+    /**
      * hace una consulta simple de una tabla unica
      * fields: campos separados por ,
      * where: en caso de que filtre
@@ -387,7 +387,8 @@ class ObjectDB extends Database {
             $this->insertInTo();
     }
 
-    /* metodo edit_data, que edita valores de un formulario en una tabla de la base de datos
+    /**
+     *  metodo edit_data, que edita valores de un formulario en una tabla de la base de datos
       $pref: toma el prefijo de cada campo que seran los valores que se van a insertar ejemplo r-nombre "r"
       $sep es el caracter que separa al nombre del campo y el prefiejo ejemplo r_nombre nota la separacion debe ser un "_"
       $tabla: la tabla de la base de datos que sufrir� los cambios

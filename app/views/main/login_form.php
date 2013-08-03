@@ -66,12 +66,12 @@
             <h1><img src="<?= Front::myUrl('images/minilogo.gif') ?>"></h1>
             <div class="module_content">
                 <fieldset>
-                    <label>Usuario:</label>
-                    <input id="user" name="user" type="text">
+                    <label for="user">Usuario:</label>
+                    <input id="user" name="user">
                 </fieldset>
                 <fieldset>
-                    <label>Clave:</label>
-                    <input id="clave" onclick="" name="clave" type="password">
+                    <label for="clave">Clave:</label>
+                    <input id="clave" name="clave" type="password">
                 </fieldset>
 
                 <div id="mensaje">&nbsp;</div>

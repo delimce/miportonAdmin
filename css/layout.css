@@ -680,14 +680,6 @@ float: left;
 margin: 0 3.5%;
 }
 
-.post_message input[type=text]:focus {
-outline: none;
-border: 1px solid #77BACE;
--webkit-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
--moz-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;
-color: #666666;
-}
 
 .post_message input[type=image] {
 float: left;
@@ -713,17 +705,15 @@ margin: 15px 0;
 fieldset label {
 display: block;
 float:left;
-width: 80px;
 height: 25px;
 line-height: 25px;
 text-shadow: 0 1px 0 #fff;
 font-weight: bold;
 padding-left: 10px;
-margin: 1px 0 5px 0;
 text-transform: uppercase;
 }
 
-fieldset input[type=text] {
+fieldset input {
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
@@ -742,7 +732,7 @@ width: 95%;
 }
 
 
-fieldset input[type=password] {
+fieldset input {
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
@@ -760,7 +750,7 @@ float: left;
 width: 95%;
 }
 
-fieldset input[type=text]:focus {
+fieldset input:focus {
 outline: none;
 border: 1px solid #77BACE;
 -webkit-box-shadow: inset 0 2px 2px #ccc, 0 0 10px #ADDCE6;

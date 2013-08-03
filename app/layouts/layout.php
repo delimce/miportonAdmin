@@ -1,15 +1,11 @@
 <!doctype html>
 <html lang="es">
-
     <head>
         <?php include_meta(); ?>
         <style type="text/css">
+            @import "<?= Front::myUrl('css/ie.css') ?>";
             @import "<?= Front::myUrl('css/layout.css') ?>";
         </style>
-        <!--[if lt IE 9]>
-        <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
         <?php include_javascripts(); ?>
         <script type="text/javascript">
             $(document).ready(function()
@@ -18,33 +14,7 @@
                 
             }
             );
-            $(document).ready(function() {
-
-                //When page loads...
-                $(".tab_content").hide(); //Hide all content
-                $("ul.tabs li:first").addClass("active").show(); //Activate first tab
-                $(".tab_content:first").show(); //Show first tab content
-
-                //On Click Event
-                $("ul.tabs li").click(function() {
-
-                    $("ul.tabs li").removeClass("active"); //Remove any "active" class
-                    $(this).addClass("active"); //Add "active" class to selected tab
-                    $(".tab_content").hide(); //Hide all tab content
-
-                    var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-                    $(activeTab).fadeIn(); //Fade in the active ID content
-                    return false;
-                });
-                
-                
-                
-                
-
-            });
-            
-                        
-            
+                            
         </script>
         <script type="text/javascript">
             $(function() {
@@ -101,7 +71,7 @@
             </footer>
         </aside><!-- end of sidebar -->
 
-        <section id="main" class="column"><!-- end of stats article --><!-- end of content manager article --><!-- end of messages article -->
+        <section id="main" class="column">
 
             <?php  echo (isset($body) && is_array($body)) ? implode("\n", $body) : '' ?>
 
