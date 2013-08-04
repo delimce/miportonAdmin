@@ -356,6 +356,10 @@ background: url(../images/template/icn_security.png) no-repeat center left;
 background: url(../images/template/icn_jump_back.png) no-repeat center left;
 }
 
+#sidebar li.icn_franquicia a {
+background: url(../images/template/icn_franquicia.png) no-repeat center left;
+}
+
 #sidebar p {
 color: #666666;
 padding-left: 6%;

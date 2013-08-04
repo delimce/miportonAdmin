@@ -89,36 +89,33 @@ class Security {
         Front::redirect("main/login");
     }
 
-
     /**
      * verifica si el usuario tiene permiso para entrar al modulo (en caso de que no sea administrador)
-     * se debe pasar el nombre del modulo en cuestion
+     * se debe pasar el nombre del modulo en cuestion (acepta varios perfiles separados por ,)
      */
-
     static public function hasPermissionTo($profile) {
 
+        $arrayProfile = explode(",", $profile);
         Security::sessionActive();
 
-        if (Security::getUserProfileName() != $profile) {
+        if (!in_array(Security::getUserProfileName(), $arrayProfile)) {
             Security::logOff();
-        }    
-       
+        }
     }
-    
+
     /**
      * verifica si el perfil del usuario es igual al solicitado
      * @param type $profile
      * @return type
      */
-    static public function isProfileName($profile){
-        
-        return (Security::getUserProfileName()==$profile)?true:false;
+    static public function isProfileName($profile) {
+
+        return (Security::getUserProfileName() == $profile) ? true : false;
     }
 
     /**
      * para revisar si hay una session iniciada
      */
-
     static public function isSessionActive() {
 
         return isset($_SESSION["USERID"]) ? true : false;

@@ -46,16 +46,13 @@
             <h3>Mi Cuenta</h3>
             <ul class="toggle">
                  <li class="icn_profile"><a href="<?= Front::myUrl('cuenta/datos'); ?>">Datos</a></li>
-                <li class="icn_edit_article"><a href="#">Edit Articles</a></li>
-                <li class="icn_categories"><a href="#">Categories</a></li>
-                <li class="icn_tags"><a href="#">Tags</a></li>
                  <li class="icn_jump_back"><a href="<?= Front::myUrl('main/logout') ?>">Salir</a></li>
             </ul>
 
             <?php if (Security::isProfileName("admin")) { ?>
                 <h3>Administración</h3>
                 <ul class="toggle">
-                   
+                    <li class="icn_franquicia"><a href="<?= Front::myUrl('admin/franquicia'); ?>">Franquicias</a></li>
                     <li class="icn_view_users"><a href="#">Distribuidores</a></li>
                     <li class="icn_settings"><a href="#">Opciones</a></li>
                     <li class="icn_categories"><a href="#">Comandos SMS</a></li>

@@ -329,7 +329,7 @@ class ObjectDB extends Database {
         return $a;
     }
 
-    /*
+    /**
      * funcion que hace el query de los campos de la tabla seteada, devuelve el resulset asociado.
      */
 
@@ -351,7 +351,7 @@ class ObjectDB extends Database {
     /* metodo insert_data, que inserta valores de un formulario en una tabla de la base de datos
       $pref: toma el prefijo de cada campo que seran los valores que se van a insertar ejemplo r-nombre "r"
       $sep es el caracter que separa al nombre del campo y el prefiejo ejemplo r_nombre nota la separacion debe ser un "_"
-      $tabla: la tabla de la base de datos que sufrir los cambios
+      $tabla: la tabla de la base de datos que sufrir los cambios (false) omite este parametro
       $metodo: vectores globales segun el metodo por el cual vienen los valores del formulario "$_GET" o "$_POST"
       IMPOTANTE: EL NOMBRE DE LOS CAMPOS DEBE SER EL NOMBRE DE LAS VARIABLES DE FORMULARIO PASADAS
 
@@ -361,7 +361,7 @@ class ObjectDB extends Database {
 
         ////objeto de base de datos
 
-        $this->setTable($table);
+        if($table) $this->setTable($table);
 
         $r = 0;
         while (list($key, $value) = each($vars)) {
@@ -391,7 +391,7 @@ class ObjectDB extends Database {
      *  metodo edit_data, que edita valores de un formulario en una tabla de la base de datos
       $pref: toma el prefijo de cada campo que seran los valores que se van a insertar ejemplo r-nombre "r"
       $sep es el caracter que separa al nombre del campo y el prefiejo ejemplo r_nombre nota la separacion debe ser un "_"
-      $tabla: la tabla de la base de datos que sufrir� los cambios
+      $tabla: la tabla de la base de datos que sufrir los cambios (false) omite este parametro
       $metodo: vectores globales segun el metodo por el cual vienen los valores del formulario "$_GET" o "$_POST"
       $where: condicion de edicion ejemplo id='1'
       IMPOTANTE: EL NOMBRE DE LOS CAMPOS DEBE SER EL NOMBRE DE LAS VARIABLES DE FORMULARIO PASADAS
@@ -400,7 +400,7 @@ class ObjectDB extends Database {
     public function dataUpdate($pref, $sep, $table, $vars, $where = "") {
 
 
-        $this->setTable($table);
+        if($table) $this->setTable($table);
 
         $r = 0;
         while (list($key, $value) = each($vars)) {
