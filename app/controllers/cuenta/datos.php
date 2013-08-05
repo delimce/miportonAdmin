@@ -23,8 +23,10 @@ function _datos() {
     }
 
     $db->setTable($tabla);
-    $db->getTableFields("id,nombre,email,usuario,clave,tlf", "id = " + Security::getUserID());
-    
+
+    $ide = Security::getUserID();
+    $db->getTableFields("id,nombre,email,usuario,clave,tlf", "id = $ide ");
+
     $db->close();
 
     $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Editar datos';
