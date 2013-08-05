@@ -53,8 +53,7 @@
                 <h3>Administración</h3>
                 <ul class="toggle">
                     <li class="icn_franquicia"><a href="<?= Front::myUrl('admin/franquicia'); ?>">Franquicias</a></li>
-                    <li class="icn_view_users"><a href="#">Distribuidores</a></li>
-                    <li class="icn_settings"><a href="#">Opciones</a></li>
+                    <li class="icn_view_users"><a href="<?= Front::myUrl('admin/distribuidor'); ?>">Distribuidores</a></li>
                     <li class="icn_categories"><a href="#">Comandos SMS</a></li>
                     <li class="icn_security"><a href="#">Seguridad</a></li>
                    

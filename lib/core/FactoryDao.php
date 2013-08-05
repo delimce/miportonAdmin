@@ -20,6 +20,16 @@ class FactoryDao {
 
         return "call sp_login('$user', '$pass')";
     }
+    
+    
+    /**
+     * trae la lista de distribuidores
+     * @return string
+     */
+    static public function distribuidorList(){
+        
+        return "call sp_distribuidor_lista() ";
+    }
 
     static public function getModuleAccess($modulo, $usuario, $cuenta) {
 

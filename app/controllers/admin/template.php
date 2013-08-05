@@ -17,6 +17,7 @@ function _franquicia() {
         $db->dataInsert("r", "0", false, $_POST);
     } else if ($operacion == "edit") { /// en caso de edit      
         $db->dataUpdate("r", "0", false, $_POST, "id = $ide");
+        echo '<h4 class="alert_success">Edición efectuada con éxito</h4>';
     } else { //mostrar lista
         $db->getTableAllRecords("*");
         $db->freeResult();
