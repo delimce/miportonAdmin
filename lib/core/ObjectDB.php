@@ -37,7 +37,6 @@ class ObjectDB extends Database {
     /**
      * asigna un valor y clave a la lista de campos
      */
-
     public function setField($key, $val) {
         $this->fields[$key] = $val;
     }
@@ -45,7 +44,6 @@ class ObjectDB extends Database {
     /**
      * retorna un valor a partir de una clave del campo
      */
-
     public function getField($key) {
         return $this->fields[$key];
     }
@@ -53,7 +51,6 @@ class ObjectDB extends Database {
     /**
      * retorna toda la data del vector $fields
      */
-
     public function getFields() {
         print_r($this->fields);
     }
@@ -61,13 +58,14 @@ class ObjectDB extends Database {
     /**
      * agrega campos al enunciado del query
      */
-
-    public function setFields($campos, $where = false) {
+    public function setFields($campos, $where = false, $order = false) {
         if ($this->sql)
             $this->sql = '';
         $this->sql = "select " . $campos . " from " . $this->getTable();
         if ($where)
             $this->setWhere($where);
+        if ($order)
+            $this->concatSql(" ORDER BY " . $order);
     }
 
     /*
@@ -137,7 +135,8 @@ class ObjectDB extends Database {
             if (!$this->prepare) {
 
                 if (!is_numeric($value))
-                    $valor = "'" . $this->escapeString($value) . "'"; else
+                    $valor = "'" . $this->escapeString($value) . "'";
+                else
                     $valor = $value;
             } else {
                 //////para ver el tipo de parametro a insertar
@@ -188,7 +187,8 @@ class ObjectDB extends Database {
             if (!$this->prepare) {
 
                 if (!is_numeric($value))
-                    $valor = "'" . $this->escapeString($value) . "'"; else
+                    $valor = "'" . $this->escapeString($value) . "'";
+                else
                     $valor = $value;
             }
 
@@ -238,7 +238,6 @@ class ObjectDB extends Database {
      * trae el resultado (vector asociativo) con los campos
      * de 1 registro (analogo: simple_db)
      */
-
     public function getResultFields() {
 
         $this->resetFields();
@@ -259,7 +258,6 @@ class ObjectDB extends Database {
      * fields: campos separados por ,
      * where: en caso de que filtre
      */
-
     public function getTableFields($fiels, $where = false) {
 
         $this->sql = "select $fiels from ";
@@ -270,11 +268,10 @@ class ObjectDB extends Database {
         return $this->getResultFields();
     }
 
-    /*
+    /**
      * arma un arreglo simple con el resultado de una consulta de
      *  1 campo
      */
-
     public function getArrayDb() {
 
         $this->executeQuery();
@@ -312,7 +309,7 @@ class ObjectDB extends Database {
      * matrizdb genera un arreglo asociativo bidimensional de varias filas a partir de un query
      * (estructura_db)
      */
-    public function matrixDb() {
+    public function getMatrixDb() {
 
         $this->executeQuery();
         $campos = $this->getFieldsNames();
@@ -332,8 +329,7 @@ class ObjectDB extends Database {
     /**
      * funcion que hace el query de los campos de la tabla seteada, devuelve el resulset asociado.
      */
-
-    public function getTableAllRecords($fiels, $where = false, $order=false) {
+    public function getTableAllRecords($fiels, $where = false, $order = false) {
 
         $this->sql = "select $fiels from ";
         $this->concatSql($this->getTable());
@@ -361,7 +357,8 @@ class ObjectDB extends Database {
 
         ////objeto de base de datos
 
-        if($table) $this->setTable($table);
+        if ($table)
+            $this->setTable($table);
 
         $r = 0;
         while (list($key, $value) = each($vars)) {
@@ -396,11 +393,11 @@ class ObjectDB extends Database {
       $where: condicion de edicion ejemplo id='1'
       IMPOTANTE: EL NOMBRE DE LOS CAMPOS DEBE SER EL NOMBRE DE LAS VARIABLES DE FORMULARIO PASADAS
      */
-
     public function dataUpdate($pref, $sep, $table, $vars, $where = "") {
 
 
-        if($table) $this->setTable($table);
+        if ($table)
+            $this->setTable($table);
 
         $r = 0;
         while (list($key, $value) = each($vars)) {

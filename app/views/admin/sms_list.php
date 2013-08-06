@@ -1,10 +1,9 @@
 <article class="module width_full">
     <header><h3 class="tabs_involved">Lista de Comandos</h3>
-        <ul class="tabs">
+<!--        <ul class="tabs">
             <li><a href="<?= Front::myUrl('admin/sms_new') ?>">Crear Nuevo</a></li>
-        </ul>
+        </ul>-->
     </header>
-
     <?php if ($lista->getNumRows() > 0) { ?>
         <div class="tab_container">
             <div id="tab1" class="tab_content">

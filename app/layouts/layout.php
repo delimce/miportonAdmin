@@ -63,7 +63,7 @@
 
             <footer>
                 <hr />
-                <p><strong>Copyright &copy; 2013 MiPorton.net</strong></p>
+                <p><strong>Copyright &copy; <?=date("Y")?> MiPorton.net</strong></p>
             </footer>
         </aside><!-- end of sidebar -->
 

@@ -7,6 +7,7 @@ function _sms() {
     $db = new ObjectDB();
     $db->setTable("tbl_comandos_sms");
 
+    
     $operacion = Form::getVar("operacion"); ////para la desicion
     $ide = Form::getVar("id",$_POST);
     ///para el crud
