@@ -39,7 +39,6 @@
         <section id="secondary_bar">
 
 
-
         </section><!-- end of secondary bar -->
 
         <aside id="sidebar" class="column">
@@ -55,7 +54,7 @@
                     <li class="icn_franquicia"><a href="<?= Front::myUrl('admin/franquicia'); ?>">Franquicias</a></li>
                     <li class="icn_view_users"><a href="<?= Front::myUrl('admin/distribuidor'); ?>">Distribuidores</a></li>
                     <li class="icn_categories"><a href="<?= Front::myUrl('admin/sms'); ?>">Comandos SMS</a></li>
-                    <li class="icn_security"><a href="#">Seguridad</a></li>
+                    <li class="icn_tags"><a href="<?= Front::myUrl('admin/vars'); ?>">Variables SMS</a></li>
                    
                 </ul>
             <?php } ?>

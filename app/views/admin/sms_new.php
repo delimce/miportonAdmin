@@ -1,11 +1,24 @@
 <script>
     $(document).ready(function() {
 
+        $.validator.addMethod("not_blank_between", function() {
+
+            var n = $('#r0funcion').val().split(" ");
+            if (n.length > 1)
+                return false;
+            else
+                return true;
+
+        }, "La función no puede tener espacios en blanco");
+
+
+
         $('#form1').validate({
             rules: {
                 r0funcion: {
                     required: true,
-                    minlength: 5
+                    minlength: 5,
+                    not_blank_between: true
                 },
                 r0comando: {
                     required: true,
