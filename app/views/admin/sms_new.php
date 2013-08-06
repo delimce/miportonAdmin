@@ -28,6 +28,7 @@
                 return false;
 
             var formData = $("#form1").serialize();
+            $('#submit').attr('disabled', 'disabled');
 
             $.ajax({
                 type: "POST",
@@ -37,7 +38,7 @@
                 success: function(data, status) {
                     data = $.trim(data);
 
-                    $("#mensaje").html(data);
+                    $(location).attr('href', '<?= Front::myUrl('admin/sms'); ?>');
 
                 }
             });
@@ -49,7 +50,7 @@
 </script>
 
 <article class="module width_full">
-    <header><h3 class="tabs_involved">Editar Comando SMS</h3>
+    <header><h3 class="tabs_involved">Crear Comando SMS</h3>
         <ul class="tabs">
             <li><a href="<?= Front::myUrl('admin/sms') ?>">Regresar</a></li>
         </ul>
@@ -77,31 +78,29 @@
 
             <fieldset>
                 <label for="r0nombre">Funcion:</label>
-                <input id="r0funcion" name="r0funcion" value="<?= $datos->getField("funcion") ?>">
+                <input id="r0funcion" name="r0funcion">
             </fieldset>
 
             <fieldset>
                 <label for="r0comando">Comando completo:</label>
-                <input id="r0comando" name="r0comando" value="<?= $datos->getField("comando") ?>">
+                <input id="r0comando" name="r0comando">
             </fieldset>
 
             <fieldset>
                 <label for="r0respok">Resp. OK:</label>
-                <input id="r0respok" name="r0respok" value="<?= $datos->getField("respok") ?>">
+                <input id="r0respok" name="r0respok">
             </fieldset>
 
             <fieldset>
                 <label for="r0resperror">Resp. ERROR:</label>
-                <input id="r0resperror" name="r0resperror" value="<?= $datos->getField("resperror") ?>">
-                <input id="operacion" name="operacion" type="hidden" value="edit">
-                <input id="id" name="id" type="hidden" value="<?= $datos->getField("id") ?>">
-
+                <input id="r0resperror" name="r0resperror">
+                <input id="operacion" name="operacion" type="hidden" value="new">
             </fieldset>
 
 
             <fieldset>
                 <label for="r0explicacion">Explicación:</label>
-                <textarea id="r0explicacion" name="r0explicacion"><?= $datos->getField("explicacion") ?></textarea>
+                <textarea id="r0explicacion" name="r0explicacion"></textarea>
             </fieldset>
 
             <div id="mensaje">&nbsp;</div>
