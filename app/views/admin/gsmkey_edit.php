@@ -1,7 +1,6 @@
 <script>
     $(document).ready(function() {
 
-
         jQuery.validator.addMethod("exactlength", function(value, element, param) {
             return this.optional(element) || value.length == param;
         }, jQuery.format("Please enter exactly 6 characters."));
@@ -71,7 +70,6 @@
         </ul>
     </header>
 
-
     <form name="form1" id="form1">
         <div class="module_content">
 
@@ -105,6 +103,7 @@
             <fieldset>
                 <label for="clave2">Repetir clave:</label>
                 <input id="clave2" name="clave2" value="<?=$datos->getField("clave") ?>">
+                <input id="id" name="id" type="hidden" value="<?= $datos->getField("id") ?>">
                 <input id="operacion" name="operacion" type="hidden" value="edit">
             </fieldset>
 

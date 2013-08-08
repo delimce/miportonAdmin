@@ -1,6 +1,6 @@
 <?php
 
-function _gsmkey_edit() {
+function _gsmkey_edit($id = false) {
 
     Security::hasPermissionTo("admin");
 
@@ -15,9 +15,9 @@ function _gsmkey_edit() {
 
     $db->close();
 
-    $capacidades = array(200, 2000, false, $db->getField("capacidad"));
+    $capacidades = array(200, 2000);
 
-    $cap = Form::arrayCombo("r0capacidad", $capacidades, $capacidades);
+    $cap = Form::arrayCombo("r0capacidad", $capacidades, $capacidades, false, $db->getField("capacidad"));
 
     $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Admin GSM-KEY';
     $data['body'][] = View::do_fetch(VIEW_PATH . 'admin/gsmkey_edit.php', array("datos" => $db, "capacidad" => $cap));
