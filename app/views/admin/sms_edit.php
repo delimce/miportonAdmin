@@ -73,9 +73,11 @@
     <form name="form1" id="form1">
         <div class="module_content">
 
-            <fieldset>
+           <fieldset>
                 <div><label>Variables:</label></div>
-                <p>&nbsp;</p>
+                <br>
+                 <h4 class="alert_warning">Recuerde usar sólo las variables de la lista a continuación: </h4>
+                 <br>
                 <div>
                     <?php
                     foreach ($vars as $i => $value) {
@@ -85,6 +87,8 @@
                     }
                     ?>
                 </div>
+                
+                 
             </fieldset>
 
 

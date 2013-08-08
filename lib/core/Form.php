@@ -184,11 +184,11 @@ class Form {
      * crea un combo estilo mobile a partir de dos vectores, $option y $value
      */
 
-    public function arrayComboMobile($id, $option, $value, $select = false, $default = false) {
+    public static function arrayCombo($id, $option, $value, $select = false, $default = false) {
 
         $combo = '<select name="' . $id . '" id="' . $id . '"';
         ///estilo mobile
-        $combo.= ' data-native-menu="false" data-mini="true">';
+        $combo.= '>';
         if ($select)
             $combo.= '<option value="0">' . $select . '</option>';
         for ($i = 0; $i < count($option); $i++) {

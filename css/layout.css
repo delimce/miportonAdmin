@@ -360,6 +360,15 @@ background: url(../images/template/icn_jump_back.png) no-repeat center left;
 background: url(../images/template/icn_franquicia.png) no-repeat center left;
 }
 
+#sidebar li.icn_edif a {
+background: url(../images/template/icn_edif.png) no-repeat center left;
+}
+
+#sidebar li.icn_gsmkey a {
+background: url(../images/template/icn_gsmkey.png) no-repeat center left;
+}
+
+
 #sidebar p {
 color: #666666;
 padding-left: 6%;

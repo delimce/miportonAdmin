@@ -30,6 +30,14 @@ class FactoryDao {
         
         return "call sp_distribuidor_lista() ";
     }
+    
+    /**
+     * trae la lista de gsmKey
+     * @return string
+     */
+    static public function gsmKeyList(){
+        return "call sp_gsmkey_list() ";
+    }
 
     static public function getModuleAccess($modulo, $usuario, $cuenta) {
 
