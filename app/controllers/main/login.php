@@ -19,8 +19,23 @@ function _login() {
                 Security::setUserID($db->getField("id"));
                 Security::setUserName($db->getField("nombre"));
                 Security::setUserProfileName($db->getField("profile"));
+                $id = $db->getField("id");
+                
+                
+                
+                ////registro de acceso
+                $db->setTable("tbl_accesos_log");
+                $db->setField("user", Security::getUserID());
+                $db->setField("perfil", Security::getUserProfileName());
+                $fecha = Calendar::getDatabaseDateTime();
+                $db->setField("fecha", $fecha);
+                $cliente = $_SERVER['HTTP_USER_AGENT'];
+                $db->setField("cliente_info", $cliente);
+                $db->insertInTo();
+                
+                
 
-                echo $db->getField("id");
+                echo $id;
 
                 //////
             } else {
