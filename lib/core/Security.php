@@ -56,14 +56,25 @@ class Security {
         $_SESSION["USERPROFILENAME"] = $userProfileName;
     }
 
-    ////opcional para la cuenta
+    ////opcional para la franquicia
 
-    static public function setCuentaID($cuenta) {
-        $_SESSION["CUENTAID"] = $cuenta;
+    static public function setFranquiciaID($franquicia) {
+        $_SESSION["FRANQUICIAID"] = $franquicia;
     }
 
-    static public function getCuentaID() {
-        return $_SESSION["CUENTAID"];
+    static public function getFranquiciaID() {
+        return $_SESSION["FRANQUICIAID"];
+    }
+    
+    
+     ////opcional para el edificio
+
+    static public function setEdificioID($edif) {
+        $_SESSION["EDIFICIOID"] = $edif;
+    }
+
+    static public function getEdificioID() {
+        return $_SESSION["EDIFICIOID"];
     }
 
     /*

@@ -48,6 +48,16 @@
                  <li class="icn_jump_back"><a href="<?= Front::myUrl('main/logout') ?>">Salir</a></li>
             </ul>
 
+            <?php if (Security::isProfileName("admin") or Security::isProfileName("distri")) { ?>
+             <h3>Distribución</h3>
+                <ul class="toggle">
+                    <li class="icn_view_users"><a href="<?= Front::myUrl('distri/cliente'); ?>">Clientes</a></li>
+                    <li class="icn_edif"><a href="<?= Front::myUrl('distri/edificio'); ?>">Edificios</a></li>
+                    
+                </ul>
+            
+            <?php } ?>
+            
             <?php if (Security::isProfileName("admin")) { ?>
                 <h3>Administración</h3>
                 <ul class="toggle">

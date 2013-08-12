@@ -28,8 +28,18 @@ class FactoryDao {
      */
     static public function distribuidorList(){
         
-        return "call sp_distribuidor_lista() ";
+        return "call sp_distribuidor_list() ";
     }
+    
+    /**
+     * trae la lista de clientes
+     * @return string
+     */
+    static public function clienteList(){
+        return "call sp_cliente_list() ";
+    }
+
+
     
     /**
      * trae la lista de gsmKey
@@ -71,6 +81,10 @@ class FactoryDao {
         return $query;
     }
 
+    
+    
+    
+    
     static public function getProfiles() {
 
         return "select id,nombre from tbl_perfil order by nombre desc";
