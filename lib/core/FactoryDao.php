@@ -49,6 +49,17 @@ class FactoryDao {
         return "call sp_gsmkey_list() ";
     }
 
+    /**
+     * trae la lista de zonas
+     * @return string
+     */
+    static public function zonasList(){
+        return "call sp_zonas_list() ";
+    }
+
+    
+    
+    
     static public function getModuleAccess($modulo, $usuario, $cuenta) {
 
         return "call sp_verificar_permiso($modulo,$usuario,$cuenta)";

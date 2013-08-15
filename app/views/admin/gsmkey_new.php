@@ -1,7 +1,6 @@
 <script>
     $(document).ready(function() {
 
-
         jQuery.validator.addMethod("exactlength", function(value, element, param) {
             return this.optional(element) || value.length == param;
         }, jQuery.format("Please enter exactly 6 characters."));
@@ -92,6 +91,10 @@
                 <input id="r0tlf" name="r0tlf">
             </fieldset>
 
+            <fieldset>
+                <label for="r0zona_id">Zona de operación:</label>
+                <?= $zonas ?>
+            </fieldset>
 
             <fieldset>
                 <label for="r0capacidad">Capacidad:</label>
@@ -108,7 +111,6 @@
                 <input id="clave2" name="clave2">
                 <input id="operacion" name="operacion" type="hidden" value="new">
             </fieldset>
-
 
 
             <div id="mensaje">&nbsp;</div>

@@ -17,7 +17,6 @@
                     required: true,
                     digits: true,
                     minlength: 11,
-
                 },
                 r0clave: {
                     required: true,
@@ -41,7 +40,7 @@
                 return false;
 
             var formData = $("#form1").serialize();
- 
+
             $.ajax({
                 type: "POST",
                 url: "<?= Front::myUrl('admin/gsmkey'); ?>",
@@ -50,7 +49,7 @@
                 success: function(data, status) {
                     data = $.trim(data);
 
-                     $("#mensaje").html(data);
+                    $("#mensaje").html(data);
 
                 }
             });
@@ -75,20 +74,25 @@
 
             <fieldset>
                 <label for="r0modelo">Modelo:</label>
-                <input id="r0modelo" name="r0modelo" value="<?=$datos->getField("modelo") ?>">
+                <input id="r0modelo" name="r0modelo" value="<?= $datos->getField("modelo") ?>">
             </fieldset>
 
 
             <fieldset>
                 <label for="r0imei">Imei:</label>
-                <input id="r0imei" name="r0imei" value="<?=$datos->getField("imei") ?>">
+                <input id="r0imei" name="r0imei" value="<?= $datos->getField("imei") ?>">
             </fieldset>
 
             <fieldset>
                 <label for="r0tlf">Telefono:</label>
-                <input id="r0tlf" name="r0tlf" value="<?=$datos->getField("tlf") ?>">
+                <input id="r0tlf" name="r0tlf" value="<?= $datos->getField("tlf") ?>">
             </fieldset>
 
+
+            <fieldset>
+                <label for="r0zona_id">Zona de operación:</label>
+                <?= $zonas ?>
+            </fieldset>
 
             <fieldset>
                 <label for="r0capacidad">Capacidad:</label>
@@ -97,12 +101,12 @@
 
             <fieldset>
                 <label for="r0clave">Clave:</label>
-                <input id="r0clave" name="r0clave" value="<?=$datos->getField("clave") ?>">
+                <input id="r0clave" name="r0clave" value="<?= $datos->getField("clave") ?>">
             </fieldset>
 
             <fieldset>
                 <label for="clave2">Repetir clave:</label>
-                <input id="clave2" name="clave2" value="<?=$datos->getField("clave") ?>">
+                <input id="clave2" name="clave2" value="<?= $datos->getField("clave") ?>">
                 <input id="id" name="id" type="hidden" value="<?= $datos->getField("id") ?>">
                 <input id="operacion" name="operacion" type="hidden" value="edit">
             </fieldset>

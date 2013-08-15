@@ -13,7 +13,8 @@
                         <tr> 
                             <th>Imei</th>                     
                             <th>Tlf</th> 
-                            <th>Capacidad</th> 
+                            <th>Capacidad</th>
+                            <th>Zona</th> 
                             <th>Creado por</th>
                             <th>Usado?</th>
                             <th>Defecto?</th>
@@ -25,12 +26,13 @@
                             <tr> 
                                 <td><?php echo $row->imei ?></td> 
                                 <td><?php echo $row->tlf ?></td> 
-                                <td><?php echo $row->capacidad ?></td> 
+                                <td><?php echo $row->capacidad ?></td>
+                                <td><?php echo $row->zona ?></td> 
                                 <td><?php echo $row->nombre ?></td> 
                                 <td><?php echo $row->usado ?></td> 
                                 <td><?php echo $row->defecto ?></td> 
                                 <td><input type="image" src="<?= Front::myUrl('images/template/icn_edit.png') ?>" title="Editar" onclick="location.replace('<?= Front::myUrl("admin/gsmkey_edit/$row->id") ?>')">
-<!--                                    <input type="image" src="<?= Front::myUrl('images/template/icn_trash.png') ?>" title="Borrar">-->
+        <!--                                    <input type="image" src="<?= Front::myUrl('images/template/icn_trash.png') ?>" title="Borrar">-->
                                 </td> 
                             </tr> 
                         <?php } ?>
