@@ -1,7 +1,7 @@
 <article class="module width_full">
     <header><h3 class="tabs_involved">Lista de Clientes</h3>
         <ul class="tabs">
-            <li><a href="<?= Front::myUrl('admin/franquicia_new') ?>">Crear Nuevo</a></li>
+            <li><a href="<?= Front::myUrl('admin/cliente_new') ?>">Crear Nuevo</a></li>
         </ul>
     </header>
 
@@ -26,7 +26,7 @@
                                 <td><?php echo $row->nombre ?></td> 
                                 <td><?php echo $row->rif ?></td> 
                                 <td><?php echo $row->contacto ?></td> 
-                                <td><input type="image" src="<?= Front::myUrl('images/template/icn_edit.png') ?>" title="Editar" onclick="location.replace('<?= Front::myUrl("admin/franquicia_edit/$row->id") ?>')">
+                                <td><input type="image" src="<?= Front::myUrl('images/template/icn_edit.png') ?>" title="Editar" onclick="location.replace('<?= Front::myUrl("admin/cliente_edit/$row->id") ?>')">
 <!--                                    <input type="image" src="<?= Front::myUrl('images/template/icn_trash.png') ?>" title="Borrar">-->
                                 </td> 
                             </tr> 
