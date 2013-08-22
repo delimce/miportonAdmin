@@ -58,7 +58,16 @@ class FactoryDao {
         return "call sp_zonas_list() ";
     }
 
-    
+    /**
+     * trae lista de edificios
+     * @param type $franquicia
+     * @return type
+     */
+    static public function edificioList($franquicia){
+        
+        return "call sp_edificio_list($franquicia) ";
+        
+    }
     
     
     static public function getModuleAccess($modulo, $usuario, $cuenta) {
