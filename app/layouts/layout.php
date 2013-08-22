@@ -51,8 +51,8 @@
             <?php if (Security::isProfileName("admin") or Security::isProfileName("distri")) { ?>
                 <h3>Distribución</h3>
                 <ul class="toggle">
-<!--                    <li class="icn_view_users"><a href="<?= Front::myUrl('distri/cliente'); ?>">Clientes</a></li>
-                    <li class="icn_edif"><a href="<?= Front::myUrl('distri/edificio'); ?>">Edificios</a></li>-->
+                    <li class="icn_view_users"><a href="<?= Front::myUrl('distri/cliente'); ?>">Clientes</a></li>
+<!--                    <li class="icn_edif"><a href="<?= Front::myUrl('distri/edificio'); ?>">Edificios</a></li>-->
 
                 </ul>
 

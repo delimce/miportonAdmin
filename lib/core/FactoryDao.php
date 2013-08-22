@@ -33,10 +33,11 @@ class FactoryDao {
     
     /**
      * trae la lista de clientes
-     * @return string
+     * @param type $franquicia
+     * @return type
      */
-    static public function clienteList(){
-        return "call sp_cliente_list() ";
+    static public function clienteList($franquicia){
+        return "call sp_cliente_list($franquicia) ";
     }
 
 

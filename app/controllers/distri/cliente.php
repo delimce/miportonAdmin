@@ -18,8 +18,8 @@ function _cliente() {
     } else if ($operacion == "edit") { /// en caso de edit      
         $db->dataUpdate("r", "0", false, $_POST, "id = $ide");
           echo '<h4 class="alert_success">Edición efectuada con éxito</h4>';
-    } else { //mostrar lista
-        $db->setSql(FactoryDao::clienteList());
+    } else { //mostrar lista con el id de la franquicia
+        $db->setSql(FactoryDao::clienteList((Security::getFranquiciaID()>0?Security::getFranquiciaID():0)));
         $db->executeQuery();
 
         $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Clientes';
