@@ -1,11 +1,11 @@
 <?php
 
-function _zonas_edit() {
+function _zonas_edit($id = false) {
 
     Security::hasPermissionTo("admin");
 
     $db2 = new ObjectDB();
-    $db2->setTable("tbl_zonas");
+    $db2->setTable("tbl_zona");
     $db2->getTableFields("*", "id = $id");
     
     $db2->close();

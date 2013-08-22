@@ -1,4 +1,4 @@
-<article class="module width_3_quarter">
+<article class="module width_full">
     <header><h3 class="tabs_involved">Lista de Zonas</h3>
         <ul class="tabs">
             <li><a href="<?= Front::myUrl('admin/zonas_new') ?>">Crear Nueva</a></li>

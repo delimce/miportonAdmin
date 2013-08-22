@@ -51,8 +51,8 @@
             <?php if (Security::isProfileName("admin") or Security::isProfileName("distri")) { ?>
                 <h3>Distribución</h3>
                 <ul class="toggle">
-                    <li class="icn_view_users"><a href="<?= Front::myUrl('distri/cliente'); ?>">Clientes</a></li>
-                    <li class="icn_edif"><a href="<?= Front::myUrl('distri/edificio'); ?>">Edificios</a></li>
+<!--                    <li class="icn_view_users"><a href="<?= Front::myUrl('distri/cliente'); ?>">Clientes</a></li>
+                    <li class="icn_edif"><a href="<?= Front::myUrl('distri/edificio'); ?>">Edificios</a></li>-->
 
                 </ul>
 
@@ -66,7 +66,7 @@
                     <li class="icn_categories"><a href="<?= Front::myUrl('admin/sms'); ?>">Comandos SMS</a></li>
                     <li class="icn_tags"><a href="<?= Front::myUrl('admin/vars'); ?>">Variables SMS</a></li>
                     <li class="icn_gsmkey"><a href="<?= Front::myUrl('admin/gsmkey'); ?>">GSM-Key</a></li>
-                    <li class="icn_gsmkey"><a href="<?= Front::myUrl('admin/zonas'); ?>">Zonas</a></li>
+                    <li class="icn_zona"><a href="<?= Front::myUrl('admin/zonas'); ?>">Zonas</a></li>
 
                 </ul>
             <?php } ?>

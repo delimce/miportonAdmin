@@ -1,6 +1,6 @@
 <?php
 
-function _zonas_edit() {
+function _zonas_new() {
 
     Security::hasPermissionTo("admin");
 

@@ -31,7 +31,6 @@
                 data: formData,
                 success: function(data, status) {
                     data = $.trim(data);
-
                     $(location).attr('href', '<?= Front::myUrl('admin/zonas'); ?>');
 
                 }
@@ -60,23 +59,23 @@
                 <label for="r0zona">Nombre de la Zona:</label>
                 <input id="r0zona" name="r0zona">
             </fieldset>
-            
+
             <fieldset>
                 <label for="r0pais_id">Pais:</label>
-                <?=$pais?>
+                <?= $pais ?>
             </fieldset>
-            
+
             <fieldset>
                 <label for="r0estado_id">Estado:</label>
-                <?=$estado?>
+                <?= $estado ?>
             </fieldset>
-            
+
             <fieldset>
                 <label for="r0operadora_id">Operadora tlf:</label>
-                <?=$operadora?>
+                <?= $operadora ?>
             </fieldset>
-            
-            
+
+
             <fieldset>
                 <label for="r0descripcion">Descripción de la zona:</label>
                 <textarea id="r0descripcion" name="r0descripcion"></textarea>
