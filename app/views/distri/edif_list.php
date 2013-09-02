@@ -8,7 +8,7 @@
     <?php if ($lista->getNumRows() > 0) { ?>
         <div class="tab_container">
             <div id="tab1" class="tab_content">
-            
+
                 <table class="tablesorter" cellspacing="0"> 
                     <thead> 
                         <tr> 
@@ -24,12 +24,12 @@
                         <?php while ($row = $lista->getRowFields()) { ?>
                             <tr> 
                                 <td><?php echo $row->franquicia ?></td> 
-                                <td><?php echo $row->edif ?></td> 
+                                <td><?php echo $row->edificio ?></td> 
                                 <td><?php echo $row->est ?></td> 
                                 <td><?php echo $row->zona ?></td> 
                                 <td><?php echo $row->cliente ?></td> 
                                 <td><input type="image" src="<?= Front::myUrl('images/template/icn_edit.png') ?>" title="Editar" onclick="location.replace('<?= Front::myUrl("distri/edificio_edit/$row->id") ?>')">
-<!--                                    <input type="image" src="<?= Front::myUrl('images/template/icn_trash.png') ?>" title="Borrar">-->
+        <!--                                    <input type="image" src="<?= Front::myUrl('images/template/icn_trash.png') ?>" title="Borrar">-->
                                 </td> 
                             </tr> 
                         <?php } ?>

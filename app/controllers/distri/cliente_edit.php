@@ -12,6 +12,9 @@ function _cliente_edit($id = false) {
     $db2->getTableFields("*", "id = $id $where");
     $db2->close();
 
+    ////validando que muestre el modulo cuando existan registros
+    if($db2->getNumRows()==0)
+        Front::redirect ("distri/cliente");
 
 
     ////traer combo de franquicias
