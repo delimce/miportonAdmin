@@ -14,6 +14,29 @@
         });
 
 
+        ///creando el select dinamicamente
+        $("#r0franquicia_id").change(function()
+        {
+            var id = $(this).val();
+            var dataString = 'id=' + id;
+
+            $.ajax
+                    ({
+                        type: "POST",
+                        url: "<?= Front::myUrl('distri/selectCliente'); ?>",
+                        data: dataString,
+                        cache: false,
+                        success: function(html)
+                        {
+                            $("#cliente").html(html);
+                        }
+                    });
+
+        });
+
+
+
+
         $("#submit").click(function() {
 
             //validando
@@ -66,7 +89,7 @@
 
             <fieldset>
                 <label for="r0cliente_id">Pertenece al Cliente:</label>
-                <?= $cliente ?>
+                <span id="cliente"><?= $cliente ?></span>
             </fieldset>
 
             <fieldset>
