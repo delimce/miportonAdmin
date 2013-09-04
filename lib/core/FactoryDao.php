@@ -69,6 +69,20 @@ class FactoryDao {
         
     }
     
+    /**
+     * trae la lista de portones por franquicia
+     * @param type $franquicia
+     * @return type
+     */
+     static public function portonList($franquicia){
+        
+        return "call sp_porton_list($franquicia) ";
+        
+    }
+    
+    
+    
+    
     
     static public function getModuleAccess($modulo, $usuario, $cuenta) {
 
