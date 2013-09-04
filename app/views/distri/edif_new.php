@@ -6,6 +6,12 @@
                 r0nombre: {
                     required: true
                 },
+                r0franquicia_id: {
+                    required: true
+                },
+                r0cliente_id: {
+                    required: true
+                },
                 r0direccion: {
                     required: true
                 }
@@ -19,6 +25,10 @@
         {
             var id = $(this).val();
             var dataString = 'id=' + id;
+            if (id == "") {
+                $("#cliente").html("seleccione la franquicia");
+                return false;
+            }
 
             $.ajax
                     ({
@@ -86,9 +96,8 @@
             </fieldset>
 
 
-
             <fieldset>
-                <label for="r0cliente_id">Pertenece al Cliente:</label>
+                <label for="r0cliente_id">Pertenece al Cliente:</label><br>
                 <span id="cliente"><?= $cliente ?></span>
             </fieldset>
 

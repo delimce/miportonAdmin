@@ -6,12 +6,46 @@
                 r0nombre: {
                     required: true
                 },
+                 r0franquicia_id: {
+                    required: true
+                },
+                 r0cliente_id: {
+                    required: true
+                },
                 r0direccion: {
                     required: true
                 }
             },
             errorElement: "div"
         });
+
+
+
+        ///creando el select dinamicamente
+        $("#r0franquicia_id").change(function()
+        {
+            var id = $(this).val();
+            var dataString = 'id=' + id;
+            if (id == "") {
+                $("#cliente").html("seleccione la franquicia");
+                return false;
+            }
+
+            $.ajax
+                    ({
+                        type: "POST",
+                        url: "<?= Front::myUrl('distri/selectCliente'); ?>",
+                        data: dataString,
+                        cache: false,
+                        success: function(html)
+                        {
+                            $("#cliente").html(html);
+                        }
+                    });
+
+        });
+
+
 
 
         $("#submit").click(function() {
@@ -62,8 +96,8 @@
 
 
             <fieldset>
-                <label for="r0cliente_id">Pertenece al Cliente:</label>
-                <?= $cliente ?>
+                <label for="r0cliente_id">Pertenece al Cliente:</label><br>
+                <span id="cliente"><?= $cliente ?></span>
             </fieldset>
 
             <fieldset>

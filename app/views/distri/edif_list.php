@@ -12,11 +12,11 @@
                 <table class="tablesorter" cellspacing="0"> 
                     <thead> 
                         <tr> 
-                            <th>Franquicia</th>                     
+                            <th>Franquicia</th>  
+                            <th>Cliente</th> 
                             <th>Edificio</th> 
                             <th>Tipo</th>
-                            <th>Zona</th>
-                            <th>Cliente</th> 
+                            <th>Zona</th>                            
                             <th>&nbsp;</th> 
                         </tr> 
                     </thead> 
@@ -24,10 +24,10 @@
                         <?php while ($row = $lista->getRowFields()) { ?>
                             <tr> 
                                 <td><?php echo $row->franquicia ?></td> 
-                                <td><?php echo $row->edificio ?></td> 
-                                <td><?php echo $row->est ?></td> 
-                                <td><?php echo $row->zona ?></td> 
                                 <td><?php echo $row->cliente ?></td> 
+                                <td><?php echo $row->edificio ?></td> 
+                                <td align="center"><?php echo $row->est ?></td> 
+                                <td><?php echo $row->zona ?></td>    
                                 <td><input type="image" src="<?= Front::myUrl('images/template/icn_edit.png') ?>" title="Editar" onclick="location.replace('<?= Front::myUrl("distri/edificio_edit/$row->id") ?>')">
         <!--                                    <input type="image" src="<?= Front::myUrl('images/template/icn_trash.png') ?>" title="Borrar">-->
                                 </td> 

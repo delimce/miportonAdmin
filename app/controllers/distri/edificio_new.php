@@ -16,19 +16,22 @@ function _edificio_new() {
     ////combo de franquicia
     $db->setTable("tbl_franquicia");
     $db->getTableAllRecords("id,nombre", false, "nombre");
-    $franquicia = Form::dbComboBox("r0franquicia_id", $db, "nombre", "id", false, Security::getFranquiciaID());
+    $franquicia = Form::dbComboBox("r0franquicia_id", $db, "nombre", "id", 'Seleccionar', Security::getFranquiciaID());
 
     $where = (Security::getFranquiciaID() == "") ? false : 'franquicia_id = ' . Security::getFranquiciaID();
 
+
+    ////para presentar el combo de clientes
+
     if (!$where) {
+
+        $cliente = "seleccione la franquicia";
+    } else {
         $db = new ObjectDB();
         ////combo de clientes
         $db->setTable("tbl_cliente");
         $db->getTableAllRecords("id,nombre", $where, "nombre");
         $cliente = Form::dbComboBox("r0cliente_id", $db, "nombre", "id");
-    }else{
-        
-        $cliente = "seleccione la franquicia";
     }
 
 

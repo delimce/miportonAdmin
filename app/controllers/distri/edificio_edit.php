@@ -4,7 +4,6 @@ function _edificio_edit($id = false) {
 
     Security::hasPermissionTo("admin,distri");
 
-
     $db2 = new ObjectDB();
     $db2->setTable("tbl_edificio");
     $franquicia = Security::getFranquiciaID(); ///para validar por franquicia
@@ -35,7 +34,7 @@ function _edificio_edit($id = false) {
 
     ///todo: si quiere incluir filtro por franquicia
 
-    $where = (Security::getFranquiciaID() == "") ? false : 'franquicia_id = ' . Security::getFranquiciaID();
+    $where = 'franquicia_id = ' . $db2->getField("franquicia_id");
 
     $db = new ObjectDB();
     ////combo de clientes
