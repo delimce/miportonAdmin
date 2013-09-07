@@ -14,16 +14,13 @@ function _porton_new() {
 
     ////para presentar el combo de clientes
 
-    if (!$where) {
-
-        $cliente = "seleccione la franquicia";
-    } else {
+   
         $db = new ObjectDB();
         ////combo de clientes
         $db->setTable("tbl_cliente");
         $db->getTableAllRecords("id,nombre", $where, "nombre");
         $cliente = Form::dbComboBox("r0cliente_id", $db, "nombre", "id", 'Seleccionar');
-    }
+    
 
     $visualiza = (Security::getFranquiciaID() == "") ? 'inherit' : 'none';
 

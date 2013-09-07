@@ -1,16 +1,16 @@
 <?php
 
-function _selectCliente() {
+function _selectEdificio() {
 
     Security::hasPermissionTo("admin,distri");
-    
+
     $cliente = Form::getVar("id");
 
     $db = new ObjectDB();
 
     $db->setTable("tbl_edificio");
     $db->getTableAllRecords("id,nombre", "cliente_id = $cliente", "nombre");
-    $edif = Form::dbComboBox("r0cliente_id", $db, "nombre", "id");
+    $edif = Form::dbComboBoxAjax($db, "nombre", "id", "Seleccionar");
 
     print $edif;
 }

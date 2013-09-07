@@ -10,7 +10,7 @@ function _selectCliente() {
 
     $db->setTable("tbl_cliente");
     $db->getTableAllRecords("id,nombre", "franquicia_id = $franquicia", "nombre");
-    $cliente = Form::dbComboBox("r0cliente_id", $db, "nombre", "id");
+    $cliente = Form::dbComboBoxAjax($db, "nombre", "id","seleccionar");
 
     print $cliente;
 }

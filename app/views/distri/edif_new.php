@@ -26,7 +26,7 @@
             var id = $(this).val();
             var dataString = 'id=' + id;
             if (id == "") {
-                $("#cliente").html("seleccione la franquicia");
+                $("#r0cliente_id").html('');
                 return false;
             }
 
@@ -38,7 +38,7 @@
                         cache: false,
                         success: function(html)
                         {
-                            $("#cliente").html(html);
+                            $("#r0cliente_id").html(html);
                         }
                     });
 
@@ -98,7 +98,7 @@
 
             <fieldset>
                 <label for="r0cliente_id">Pertenece al Cliente:</label><br>
-                <span id="cliente"><?= $cliente ?></span>
+                 <select name="r0cliente_id" id="r0cliente_id"></select>
             </fieldset>
 
             <fieldset>

@@ -84,7 +84,6 @@
                 return false;
 
             var formData = $("#form1").serialize();
-            $('#submit').attr('disabled', 'disabled');
 
             $.ajax({
                 type: "POST",
@@ -94,7 +93,7 @@
                 success: function(data, status) {
                     data = $.trim(data);
 
-                    $(location).attr('href', '<?= Front::myUrl('distri/porton'); ?>');
+                    $("#mensaje").html(data);
 
                 }
             });
@@ -108,7 +107,7 @@
 
 <article class="module width_3_quarter">
 
-    <header><h3 class="tabs_involved">Crear Porton</h3>
+    <header><h3 class="tabs_involved">Editar Porton</h3>
         <ul class="tabs">
             <li><a href="<?= Front::myUrl('distri/porton') ?>">Regresar</a></li>
         </ul>
@@ -126,18 +125,19 @@
 
             <fieldset>
                 <label for="cliente">Pertenece al Cliente:</label><br>
-                <select name="cliente" id="cliente"></select>
+                <?= $cliente ?>
             </fieldset>
 
             <fieldset>
                 <label for="r0edificio_id">Edificio:</label>
-                <select name="r0edificio_id" id="r0edificio_id"></select>
+                <?= $edificio ?>
             </fieldset>
 
             <fieldset>
                 <label for="r0ubicacion_ref">Referencia:</label>
-                <input id="r0ubicacion_ref" name="r0ubicacion_ref">
-                <input id="operacion" name="operacion" type="hidden" value="new">
+                <input id="r0ubicacion_ref" name="r0ubicacion_ref" value="<?= $datos->getField("r0ubicacion_ref") ?>">
+                <input id="operacion" name="operacion" type="hidden" value="edit">
+                <input id="id" name="id" type="hidden" value="<?= $datos->getField("id") ?>">
             </fieldset>
 
 
