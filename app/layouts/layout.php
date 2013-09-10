@@ -54,6 +54,7 @@
                     <li class="icn_view_users"><a href="<?= Front::myUrl('distri/cliente'); ?>">Clientes</a></li>
                     <li class="icn_edif"><a href="<?= Front::myUrl('distri/edificio'); ?>">Edificios</a></li>
                     <li class="icn_new_article"><a href="<?= Front::myUrl('distri/porton'); ?>">Portones</a></li>
+                    <li class="icn_secure"><a href="<?= Front::myUrl('distri/admin'); ?>">Admin edific.</a></li>
                 </ul>
 
             <?php } ?>

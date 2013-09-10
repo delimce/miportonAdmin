@@ -30,6 +30,7 @@
                     digits: true
                 },
                 r0email: {
+                    required: true,
                     email: true
                 },
                 r0tlf: {
@@ -140,7 +141,7 @@
             <div id="mensaje">&nbsp;</div>
             <br>
 
-            
+
         </div>
         <footer>
             <div class="submit_link">

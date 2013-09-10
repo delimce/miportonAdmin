@@ -372,6 +372,9 @@ background: url(../images/template/icn_gsmkey.png) no-repeat center left;
 background: url(../images/template/icn_zona.png) no-repeat center left;
 }
 
+#sidebar li.icn_secure a {
+background: url(../images/template/icn_secure.png) no-repeat center left;
+}
 
 #sidebar p {
 color: #666666;

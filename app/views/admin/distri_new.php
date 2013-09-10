@@ -19,7 +19,7 @@
                 r0franquicia_id: {
                     required: true
                 },
-                 r0usuario: {
+                r0usuario: {
                     required: true,
                     not_blank_between: true
                 },
@@ -31,6 +31,7 @@
                     digits: true
                 },
                 r0email: {
+                    required: true,
                     email: true
                 },
                 r0tlf: {
