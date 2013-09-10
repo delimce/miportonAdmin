@@ -80,7 +80,18 @@ class FactoryDao {
         
     }
     
-    
+    /**
+     * trae los datos del porton segun el id y la franquicia
+     * @param type $idporton
+     * @param type $idfrank
+     */
+    static public function portonGetById($idporton,$franquicia){
+        
+        return "call sp_porton_getdatabyid($idporton , $franquicia) ";
+        
+    }
+
+
     
     
     

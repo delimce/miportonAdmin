@@ -132,15 +132,17 @@
                 <label for="r0edificio_id">Edificio:</label>
                 <?= $edificio ?>
             </fieldset>
-
-            <fieldset>
+            
+              <fieldset>
                 <label for="r0ubicacion_ref">Referencia:</label>
-                <input id="r0ubicacion_ref" name="r0ubicacion_ref" value="<?= $datos->getField("r0ubicacion_ref") ?>">
-                <input id="operacion" name="operacion" type="hidden" value="edit">
+                <input id="r0ubicacion_ref" name="r0ubicacion_ref" value="<?=$datos->getField("ubicacion_ref") ?>">
+               <input id="operacion" name="operacion" type="hidden" value="edit">
                 <input id="id" name="id" type="hidden" value="<?= $datos->getField("id") ?>">
             </fieldset>
 
 
+
+           
             <div id="mensaje">&nbsp;</div>
 
             <br>

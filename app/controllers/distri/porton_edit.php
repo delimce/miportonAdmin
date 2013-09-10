@@ -5,11 +5,8 @@ function _porton_edit($id = false) {
     Security::hasPermissionTo("admin,distri");
 
     $db2 = new ObjectDB();
-    $db2->setTable("tbl_porton");
-    $franquicia = Security::getFranquiciaID(); ///para validar por franquicia
-    if ($franquicia != "")
-        $where = "and franquicia_id = $franquicia";
-    $db2->getTableFields("*", "id = $id $where");
+    $db2->setSql(FactoryDao::portonGetById($id, (Security::getFranquiciaID() > 0 ? Security::getFranquiciaID() : 0)));
+    $db2->getResultFields();
     $db2->close();
 
     //////////////
@@ -34,6 +31,9 @@ function _porton_edit($id = false) {
     $cliente = Form::dbComboBox("cliente", $db, "nombre", "id", "seleccionar", $db2->getField("cliente_id"));
 
 
+    ////completando where de edificio
+    $where.=" and cliente_id = " . $db2->getField("cliente_id");
+
     $db = new ObjectDB();
     ////combo de clientes
     $db->setTable("tbl_edificio");
@@ -44,6 +44,6 @@ function _porton_edit($id = false) {
     $visualiza = (Security::getFranquiciaID() == "") ? 'inherit' : 'none';
 
     $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'editar Porton';
-    $data['body'][] = View::do_fetch(VIEW_PATH . 'distri/porton_edit.php', array("edificio" => $edificio, "cliente" => $cliente, "franquicia" => $franquicia, "visual" => $visualiza));
+    $data['body'][] = View::do_fetch(VIEW_PATH . 'distri/porton_edit.php', array("datos" => $db2, "edificio" => $edificio, "cliente" => $cliente, "franquicia" => $franquicia, "visual" => $visualiza));
     View::do_dump(LAYOUT_PATH . 'layout.php', $data);
 }
