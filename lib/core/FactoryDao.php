@@ -9,44 +9,40 @@
  */
 class FactoryDao {
 
-
-/**
- * para hacer login de usuario al iniciar programa
- * @param type $user
- * @param type $pass
- * @return type
- */
+    /**
+     * para hacer login de usuario al iniciar programa
+     * @param type $user
+     * @param type $pass
+     * @return type
+     */
     static public function getLoginData($user, $pass) {
 
         return "call sp_login('$user', '$pass')";
     }
-    
-    
+
     /**
      * trae la lista de distribuidores
      * @return string
      */
-    static public function distribuidorList(){
-        
+    static public function distribuidorList() {
+
         return "call sp_distribuidor_list() ";
     }
-    
+
     /**
      * trae la lista de clientes
      * @param type $franquicia
      * @return type
      */
-    static public function clienteList($franquicia){
+    static public function clienteList($franquicia) {
         return "call sp_cliente_list($franquicia) ";
     }
 
-
-    
     /**
      * trae la lista de gsmKey
      * @return string
      */
-    static public function gsmKeyList(){
+    static public function gsmKeyList() {
         return "call sp_gsmkey_list() ";
     }
 
@@ -54,7 +50,7 @@ class FactoryDao {
      * trae la lista de zonas
      * @return string
      */
-    static public function zonasList(){
+    static public function zonasList() {
         return "call sp_zonas_list() ";
     }
 
@@ -63,38 +59,43 @@ class FactoryDao {
      * @param type $franquicia
      * @return type
      */
-    static public function edificioList($franquicia){
-        
+    static public function edificioList($franquicia) {
+
         return "call sp_edificio_list($franquicia) ";
-        
     }
-    
+
     /**
      * trae la lista de portones por franquicia
      * @param type $franquicia
      * @return type
      */
-     static public function portonList($franquicia){
-        
+    static public function portonList($franquicia) {
+
         return "call sp_porton_list($franquicia) ";
-        
     }
-    
+
     /**
      * trae los datos del porton segun el id y la franquicia
      * @param type $idporton
      * @param type $idfrank
      */
-    static public function portonGetById($idporton,$franquicia){
-        
+    static public function portonGetById($idporton, $franquicia) {
+
         return "call sp_porton_getdatabyid($idporton , $franquicia) ";
-        
     }
 
+    
+    /**
+     * trae la lista de los administradores de edificios por franquicia
+     * @param type $franquicia
+     * @return type
+     */
+    static public function adminEdifList($franquicia) {
 
-    
-    
-    
+
+        return "call sp_adminEdif_list($franquicia) ";
+    }
+
     static public function getModuleAccess($modulo, $usuario, $cuenta) {
 
         return "call sp_verificar_permiso($modulo,$usuario,$cuenta)";
@@ -127,10 +128,6 @@ class FactoryDao {
         return $query;
     }
 
-    
-    
-    
-    
     static public function getProfiles() {
 
         return "select id,nombre from tbl_perfil order by nombre desc";
@@ -173,8 +170,6 @@ class FactoryDao {
 
         return "call sp_usuario_modulos($userid,$cuentaid)";
     }
-
-  
 
     /*
      * funciones para fechas consulta y grabacion 
