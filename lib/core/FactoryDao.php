@@ -96,12 +96,19 @@ class FactoryDao {
         return "call sp_adminEdif_list($franquicia) ";
     }
 
-    static public function getModuleAccess($modulo, $usuario, $cuenta) {
 
-        return "call sp_verificar_permiso($modulo,$usuario,$cuenta)";
+    /**
+     * trae la lista de edificios por franquicia id
+     * @param type $franquicia
+     * @return type
+     */
+    static public function getEdifByFranquicia($franquicia){
+        
+        return "call sp_edifbyfranq_list($franquicia) ";
+        
     }
 
-    static public function getUsersList($myId = false) {
+            static public function getUsersList($myId = false) {
 
         $query = "SELECT
                 u.id,

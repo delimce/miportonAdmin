@@ -25,10 +25,6 @@
                 r0nombre: {
                     required: true
                 },
-                r0ci: {
-                    required: true,
-                    digits: true
-                },
                 r0email: {
                     required: true,
                     email: true
@@ -62,15 +58,9 @@
 
             $.ajax({
                 type: "POST",
-                url: "<?= Front::myUrl('distri/admin'); ?>",
+                url: "<?= Front::myUrl('distri/admin_new'); ?>",
                 cache: false,
-                data: formData,
-                success: function(data, status) {
-                    data = $.trim(data);
-
-                    $(location).attr('href', '<?= Front::myUrl('distri/admin'); ?>');
-
-                }
+                data: formData
             });
 
             return false;
@@ -101,10 +91,6 @@
                 <input id="r0nombre" name="r0nombre">
             </fieldset>
 
-            <fieldset>
-                <label for="r0ci">Cedula:</label>
-                <input id="r0ci" name="r0ci">
-            </fieldset>
 
             <fieldset>
                 <label for="r0usuario">Usuario:</label>
@@ -136,13 +122,6 @@
                 <label for="r0activo">Activo:</label>
                 <input id="r0activo" name="r0activo" value="1"  type="checkbox">
             </fieldset>
-
-            <hr>lista de edificios<hr>
-
-            <div>
-
-            </div>
-
 
             <div id="mensaje">&nbsp;</div>
 
