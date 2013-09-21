@@ -60,11 +60,22 @@
                 type: "POST",
                 url: "<?= Front::myUrl('distri/admin_new'); ?>",
                 cache: false,
-                data: formData
+                data: formData,
+                success: function(data, status) {
+                    data = $.trim(data);
+
+                    $(location).attr('href', '<?= Front::myUrl('distri/admin_new2'); ?>');
+
+                }
             });
 
             return false;
         });
+        
+        
+        
+        
+        
 
     });
 </script>
@@ -130,7 +141,7 @@
         </div>
         <footer>
             <div class="submit_link">
-                <input id="submit" type="submit" value="Guardar" class="alt_btn">
+                <input id="submit" type="submit" value="Continuar" class="alt_btn">
             </div>
         </footer>
 

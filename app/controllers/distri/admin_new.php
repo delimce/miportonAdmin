@@ -40,7 +40,6 @@ function _admin_new() {
 
         Security::setSessionVar("DATADMIN", $adminTemp); ///datos del administrador
 
-        Front::redirect("distri/admin_new2");
     }
 
 
