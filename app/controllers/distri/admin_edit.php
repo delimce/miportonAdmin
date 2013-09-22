@@ -1,16 +1,26 @@
 <?php
 
-function _admin_new() {
+function _admin_edit($id = false) {
 
     Security::hasPermissionTo("admin,distri");
-
-
-    
-
 
     $nombre = Form::getVar("r0nombre", $_POST); ///envio del usuario
 
     if (empty($nombre)) {
+
+
+        $db2 = new ObjectDB();
+        $db2->setTable("tbl_edificio_admin");
+        $franquicia = Security::getFranquiciaID(); ///para validar por franquicia
+        if ($franquicia != "")
+            $where = "and franquicia_id = $franquicia";
+        $db2->getTableFields("*", "id = $id $where");
+        $db2->close();
+
+        ////validando que muestre el modulo cuando existan registros
+        if ($db2->getNumRows() == 0)
+            Front::redirect("distri/admin");
+
 
         $db = new ObjectDB();
         ////traer combo de franquicias
@@ -36,16 +46,16 @@ function _admin_new() {
             "usuario" => $usuario,
             "clave" => $clave,
             "activo" => $activo,
+            "admin" => $id
         );
 
         Security::setSessionVar("DATADMIN", $adminTemp); ///datos del administrador
-        
-         die(); ///terminando
 
+        die(); ///terminando
     }
 
 
     $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Nuevo Admin edificio';
-    $data['body'][] = View::do_fetch(VIEW_PATH . 'distri/admin_new.php', array("franquicia" => $franquicia, "visual" => $visualiza));
+    $data['body'][] = View::do_fetch(VIEW_PATH . 'distri/admin_edit.php', array("datos" => $db2, "franquicia" => $franquicia, "visual" => $visualiza));
     View::do_dump(LAYOUT_PATH . 'layout.php', $data);
 }

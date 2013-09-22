@@ -58,13 +58,13 @@
 
             $.ajax({
                 type: "POST",
-                url: "<?= Front::myUrl('distri/admin_new'); ?>",
+                url: "<?= Front::myUrl('distri/admin_edit'); ?>",
                 cache: false,
                 data: formData,
                 success: function(data, status) {
                     data = $.trim(data);
 
-                    $(location).attr('href', '<?= Front::myUrl('distri/admin_new2'); ?>');
+                    $(location).attr('href', '<?= Front::myUrl('distri/admin_edit2'); ?>');
 
                 }
             });
@@ -83,7 +83,7 @@
 
 <article class="module width_half">
 
-    <header><h3 class="tabs_involved">Crear Admin edificio</h3>
+    <header><h3 class="tabs_involved">Editar Admin edificio</h3>
         <ul class="tabs">
             <li><a href="<?= Front::myUrl('distri/admin') ?>">Regresar</a></li>
         </ul>
@@ -95,42 +95,44 @@
             <fieldset>
                 <label for="r0franquicia_id">Franquicia:</label>
                 <?= $franquicia ?>
+                 <input id="operacion" name="operacion" type="hidden" value="edit">
+                <input id="id" name="id" type="hidden" value="<?= $datos->getField("id") ?>">
             </fieldset> 
 
             <fieldset>
                 <label for="r0nombre">Nombre:</label>
-                <input id="r0nombre" name="r0nombre">
+                <input id="r0nombre" name="r0nombre" value="<?= $datos->getField("nombre") ?>">
             </fieldset>
 
 
             <fieldset>
                 <label for="r0usuario">Usuario:</label>
-                <input id="r0usuario" name="r0usuario">
+                <input id="r0usuario" name="r0usuario" value="<?= $datos->getField("usuario") ?>">
             </fieldset>
 
             <fieldset>
                 <label for="r0tlf">Telefono:</label>
-                <input id="r0tlf" name="r0tlf">
+                <input id="r0tlf" name="r0tlf" value="<?= $datos->getField("tlf") ?>">
             </fieldset>
 
             <fieldset>
                 <label for="r0email">Email:</label>
-                <input id="r0email" name="r0email"  type="email">
+                <input id="r0email" name="r0email"  type="email" value="<?= $datos->getField("email") ?>">
             </fieldset>
 
             <fieldset>
                 <label for="clave">Contraseña:</label>
-                <input id="clave" name="clave" type="password">
+                <input id="clave" name="clave" type="password" value="<?= $datos->getField("clave") ?>">
             </fieldset>
 
             <fieldset>
                 <label for="clave2">Repita contraseña:</label>
-                <input id="clave2" name="clave2" type="password">
+                <input id="clave2" name="clave2" type="password" value="<?= $datos->getField("clave") ?>">
             </fieldset>
 
             <fieldset>
                 <label for="r0activo">Activo:</label>
-                <input id="r0activo" name="r0activo" value="1"  type="checkbox">
+                <input id="r0activo" name="r0activo" value="1"  type="checkbox" <?php if ($datos->getField("activo")) echo 'checked' ?>>
             </fieldset>
 
             <div id="mensaje">&nbsp;</div>

@@ -47,7 +47,6 @@
     });
 </script>
 
-
 <article class="module width_half">
 
     <header><h3 class="tabs_involved">Nuevo Admin edificio</h3>
@@ -83,7 +82,8 @@
                 ?>
             </ul> 
 
-            <input id="operacion" name="operacion" type="hidden" value="new">
+            <input id="operacion" name="operacion" type="hidden" value="edit">
+            <input id="id" name="id" type="hidden" value="<?= $datos["admin"] ?>">
 
             <br>
 

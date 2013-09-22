@@ -98,13 +98,13 @@ class FactoryDao {
 
 
     /**
-     * trae la lista de edificios por franquicia id
+     * trae la lista de edificios por franquicia id, si se le pasa el id del admin trae los del administrador
      * @param type $franquicia
      * @return type
      */
-    static public function getEdifByFranquicia($franquicia){
+    static public function getEdifByFranquicia($franquicia,$adminId){
         
-        return "call sp_edifbyfranq_list($franquicia) ";
+        return "call sp_edifbyfranq_list($franquicia,$adminId) ";
         
     }
 

@@ -9,7 +9,7 @@ function _admin_new2() {
     $datos = Security::getSessionVar("DATADMIN"); ///datos del admin
 
     ////estructura de edificios
-    $db->setSql(FactoryDao::getEdifByFranquicia($datos["franquicia"]));
+    $db->setSql(FactoryDao::getEdifByFranquicia($datos['franquicia'], 0));
     $edificios = $db->getMatrixDb(); ///lista de edificios
     $db->close();
 
