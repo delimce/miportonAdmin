@@ -28,6 +28,8 @@ function _admin_edit($id = false) {
         $db->getTableAllRecords("id,nombre", false, "nombre");
         $franquicia = Form::dbComboBox("r0franquicia_id", $db, "nombre", "id", false, Security::getFranquiciaID());
         $visualiza = (Security::getFranquiciaID() == "") ? 'inherit' : 'none';
+        
+        
     } else { ////segundo paso de la insercion
         $franquicia = Form::getVar("r0franquicia_id", $_POST);
         $email = Form::getVar("r0email", $_POST);
@@ -35,6 +37,7 @@ function _admin_edit($id = false) {
         $usuario = Form::getVar("r0usuario", $_POST);
         $clave = Form::getVar("clave", $_POST);
         $activo = Form::getVar("r0activo", $_POST);
+        $id = Form::getVar("id", $_POST);
 
 
         ///datos temporales

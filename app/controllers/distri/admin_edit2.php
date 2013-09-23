@@ -1,6 +1,6 @@
 <?php
 
-function _admin_new2() {
+function _admin_edit2() {
 
     Security::hasPermissionTo("admin,distri");
 

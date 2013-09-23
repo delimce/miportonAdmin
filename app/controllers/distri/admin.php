@@ -49,13 +49,47 @@ function _admin() {
 
         Security::unsetSessionVar("DATADMIN");
 
-        $db->dataInsert("r", "0", false, $_POST);
-    } else if ($operacion == "edit") { /// en caso de edit      
-        $db->dataUpdate("r", "0", false, $_POST, "id = $ide");
-        
-        
+        die();
+    } else if ($operacion == "edit") { /// en caso de edit    
+        $datos = Security::getSessionVar("DATADMIN"); ///datos del admin
+        $db->setField("franquicia_id", $datos['franquicia']);
+        $db->setField("nombre", $datos['nombre']);
+        $db->setField("email", $datos['email']);
+        $db->setField("tlf", $datos['tlf']);
+        $db->setField("usuario", $datos['usuario']);
+        $db->setField("clave", md5($datos['clave']));
+        $db->setField("activo", md5($datos['activo']));
+
+        $edificios = $_POST['select']; ////en este caso porque viene un array de javascript
+
+
+        $db->begin_transacction();
+        $db->updateWhere("id = {$datos['admin']} ");
+
+        ////borrando la lista de edificios
+        $db->setTable("tbl_edif_adm");
+        $db->deleteWhere("admin_id = {$datos['admin']}");
+
+        if (count($edificios) > 0) {
+
+            $db->setField("admin_id", $datos['admin']);
+            foreach ($edificios as $value) {
+
+                echo $value;
+                $db->setField("edif_id", $value);
+                $db->insertInTo(false);
+            }
+        }
+
+        $db->commit_transacction();
+
+
+
+
         Security::unsetSessionVar("DATADMIN");
         echo '<h4 class="alert_success">Edición efectuada con éxito</h4>';
+
+        die();
     } else { //mostrar lista con el id de la franquicia
         $db->setSql(FactoryDao::adminEdifList((Security::getFranquiciaID() > 0 ? Security::getFranquiciaID() : 0)));
         $db->executeQuery();
