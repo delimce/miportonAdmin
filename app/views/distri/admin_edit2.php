@@ -11,15 +11,17 @@
         });
 
 
+
+
         $("#submit").click(function() {
 
-            //validando
-            if (!$("#form1").valid())
+            if ($("input:checked").length == 0) {
+                alert('please checked atleast one');
                 return false;
+            }
 
             var formData = $("#form1").serialize();
             $('#submit').attr('disabled', 'disabled');
-
             $.ajax({
                 type: "POST",
                 url: "<?= Front::myUrl('distri/admin'); ?>",
@@ -30,16 +32,12 @@
                     $(location).attr('href', '<?= Front::myUrl('distri/admin'); ?>');
                 }
             });
-
             return false;
         });
-
-
         $("#back1").click(function() {
 
             history.back();
             return false;
-
         })
 
 

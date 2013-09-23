@@ -22,7 +22,7 @@ function _login() {
             $id = $db->getField("id");
 
             $db->begin_transacction();
-            
+
             /////en caso de que no sea admin
             if ($db->getField("profile") == "distri") { ////obteniendo el id de franquicia
                 $db->setTable("tbl_distribuidor");
@@ -31,13 +31,12 @@ function _login() {
                 Security::setFranquiciaID($db->getField("franquicia_id"));
             } else if ($db->getField("profile") == "edificio") { ///obteniendo el id del edificio
                 $db->setTable("tbl_edificio_admin");
-                $db->setFields("edificio_id", "id = $id ");
+                $db->setFields("franquicia_id", "id = $id ");
                 $db->getResultFields();
-                Security::setEdificioID($db->getField("edificio_id"));
+                Security::setFranquiciaID($db->getField("franquicia_id"));
             }
 
             /////////////
-
             ////registro de acceso
             $db->setTable("tbl_accesos_log");
             $db->setField("user", Security::getUserID());

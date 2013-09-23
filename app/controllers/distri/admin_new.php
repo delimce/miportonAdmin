@@ -5,9 +5,6 @@ function _admin_new() {
     Security::hasPermissionTo("admin,distri");
 
 
-    
-
-
     $nombre = Form::getVar("r0nombre", $_POST); ///envio del usuario
 
     if (empty($nombre)) {

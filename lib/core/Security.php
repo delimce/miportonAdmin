@@ -67,16 +67,6 @@ class Security {
     }
     
     
-     ////opcional para el edificio
-
-    static public function setEdificioID($edif) {
-        $_SESSION["EDIFICIOID"] = $edif;
-    }
-
-    static public function getEdificioID() {
-        return $_SESSION["EDIFICIOID"];
-    }
-
     /*
      * valida que la session este activa
      */

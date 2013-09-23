@@ -11,12 +11,18 @@
         });
 
 
+
+
+
+
+
         $("#submit").click(function() {
 
-            //validando
-            if (!$("#form1").valid())
-                return false;
 
+            if ($("input:checked").length == 0) {
+                alert('please checked atleast one');
+                return false;
+            }
             var formData = $("#form1").serialize();
             $('#submit').attr('disabled', 'disabled');
 

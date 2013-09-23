@@ -21,7 +21,7 @@ function _admin() {
         $db->setField("tlf", $datos['tlf']);
         $db->setField("usuario", $datos['usuario']);
         $db->setField("clave", md5($datos['clave']));
-        $db->setField("activo", md5($datos['activo']));
+        $db->setField("activo", $datos['activo']);
 
         $edificios = $_POST['select']; ////en este caso porque viene un array de javascript
 
@@ -47,6 +47,8 @@ function _admin() {
 
         $db->commit_transacction();
 
+        $db->close();
+
         Security::unsetSessionVar("DATADMIN");
 
         die();
@@ -57,8 +59,15 @@ function _admin() {
         $db->setField("email", $datos['email']);
         $db->setField("tlf", $datos['tlf']);
         $db->setField("usuario", $datos['usuario']);
-        $db->setField("clave", md5($datos['clave']));
-        $db->setField("activo", md5($datos['activo']));
+
+        //////viendo si hay que reemplazarla clave
+        $db->getTableFields("clave", "id = {$datos['admin']} "); ///cifrar clave
+        $clave2 = $db->getField("clave");
+        if ($clave2 != $datos['clave'])
+            $db->setField("clave", md5($datos['clave']));
+        /////////////////////////////
+
+        $db->setField("activo", $datos['activo']);
 
         $edificios = $_POST['select']; ////en este caso porque viene un array de javascript
 
@@ -84,7 +93,7 @@ function _admin() {
         $db->commit_transacction();
 
 
-
+        $db->close();
 
         Security::unsetSessionVar("DATADMIN");
         echo '<h4 class="alert_success">Edición efectuada con éxito</h4>';
