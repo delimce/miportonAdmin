@@ -54,12 +54,8 @@ function _admin() {
         die();
     } else if ($operacion == "edit") { /// en caso de edit    
         $datos = Security::getSessionVar("DATADMIN"); ///datos del admin
-        $db->setField("franquicia_id", $datos['franquicia']);
-        $db->setField("nombre", $datos['nombre']);
-        $db->setField("email", $datos['email']);
-        $db->setField("tlf", $datos['tlf']);
-        $db->setField("usuario", $datos['usuario']);
-
+        
+        
         //////viendo si hay que reemplazarla clave
         $db->getTableFields("clave", "id = {$datos['admin']} "); ///cifrar clave
         $clave2 = $db->getField("clave");
@@ -67,6 +63,12 @@ function _admin() {
             $db->setField("clave", md5($datos['clave']));
         /////////////////////////////
 
+
+        $db->setField("franquicia_id", $datos['franquicia']);
+        $db->setField("nombre", $datos['nombre']);
+        $db->setField("email", $datos['email']);
+        $db->setField("tlf", $datos['tlf']);
+        $db->setField("usuario", $datos['usuario']);
         $db->setField("activo", $datos['activo']);
 
         $edificios = $_POST['select']; ////en este caso porque viene un array de javascript

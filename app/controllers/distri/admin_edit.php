@@ -26,7 +26,7 @@ function _admin_edit($id = false) {
         ////traer combo de franquicias
         $db->setTable("tbl_franquicia");
         $db->getTableAllRecords("id,nombre", false, "nombre");
-        $franquicia = Form::dbComboBox("r0franquicia_id", $db, "nombre", "id", false, Security::getFranquiciaID());
+        $franquicia = Form::dbComboBox("r0franquicia_id", $db, "nombre", "id", false, $db2->getField("franquicia_id"));
         $visualiza = (Security::getFranquiciaID() == "") ? 'inherit' : 'none';
         
         
