@@ -14,6 +14,8 @@
                 },
                 r0ubicacion_ref: {
                     required: true
+                }, r0capacidad: {
+                    digits: true
                 }
             },
             errorElement: "div"
@@ -140,6 +142,10 @@
                 <input id="operacion" name="operacion" type="hidden" value="new">
             </fieldset>
 
+            <fieldset>
+                <label for="r0capacidad">Capacidad aproximada (puestos):</label>
+                <input id="r0capacidad" name="r0capacidad">
+            </fieldset>
 
             <div id="mensaje">&nbsp;</div>
 

@@ -14,6 +14,8 @@
                 },
                 r0ubicacion_ref: {
                     required: true
+                }, r0capacidad: {
+                    digits: true
                 }
             },
             errorElement: "div"
@@ -132,17 +134,21 @@
                 <label for="r0edificio_id">Edificio:</label>
                 <?= $edificio ?>
             </fieldset>
-            
-              <fieldset>
+
+
+            <fieldset>
                 <label for="r0ubicacion_ref">Referencia:</label>
-                <input id="r0ubicacion_ref" name="r0ubicacion_ref" value="<?=$datos->getField("ubicacion_ref") ?>">
-               <input id="operacion" name="operacion" type="hidden" value="edit">
+                <input id="r0ubicacion_ref" name="r0ubicacion_ref" value="<?= $datos->getField("ubicacion_ref") ?>">
+                <input id="operacion" name="operacion" type="hidden" value="edit">
                 <input id="id" name="id" type="hidden" value="<?= $datos->getField("id") ?>">
             </fieldset>
 
+            <fieldset>
+                <label for="r0capacidad">Capacidad aproximada (puestos):</label>
+                <input id="r0capacidad" name="r0capacidad" value="<?= $datos->getField("capacidad") ?>">
+            </fieldset>
 
 
-           
             <div id="mensaje">&nbsp;</div>
 
             <br>
