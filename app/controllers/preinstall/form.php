@@ -6,7 +6,7 @@ function _form() {
     ////combo de operadora
     $db->setTable("tbl_operadora_tlf");
     $db->getTableAllRecords("id,nombre", false, "nombre");
-    $operadora = Form::dbComboBox("r0operadora", $db, "nombre", "nombre","Seleccione");
+    $operadora = Form::dbComboBox("r0operador", $db, "nombre", "nombre","Seleccione");
 
     $db = new ObjectDB();
     ////combo de clientes

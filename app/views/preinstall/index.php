@@ -16,7 +16,7 @@
                 r0establecimiento: {
                     required: true
                 },
-                r0operadora: {
+                r0operador: {
                     required: true
                 },
                 r0avenida: {
@@ -37,6 +37,11 @@
                 },
                 r0tlf: {
                     digits: true,
+                    required: true
+                },
+                r0cant_puestos: {
+                    digits: true,
+                    min:1,
                     required: true
                 }
 
@@ -61,7 +66,7 @@
                 success: function(data, status) {
                     data = $.trim(data);
 
-                    $(location).attr('href', '<?= Front::myUrl('preinstall/fin'); ?>');
+                   $(location).attr('href', '<?= Front::myUrl('preinstall/fin'); ?>');
 
                 }
             });
@@ -116,7 +121,11 @@
                 <input id="r0edificio" name="r0edificio">
             </fieldset>
             
-            <hr>
+            
+             <fieldset>
+                <label for="r0cant_puestos">Cantidad aprox. de puestos:</label>
+                <input id="r0cant_puestos" name="r0cant_puestos">
+            </fieldset>
             
             <fieldset>
                 <label for="r0responsable">Nombre del contacto:</label>
@@ -124,7 +133,7 @@
             </fieldset>
 
              <fieldset>
-                <label for="r0operadora">Operadora:</label>
+                <label for="r0operador">Operadora:</label>
                 <?=$operadora ?>
             </fieldset>
             
