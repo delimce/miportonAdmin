@@ -13,6 +13,12 @@
                 r0ciudad: {
                     required: true
                 },
+                r0establecimiento: {
+                    required: true
+                },
+                r0operadora: {
+                    required: true
+                },
                 r0avenida: {
                     required: true
                 },
@@ -26,10 +32,12 @@
                     required: true
                 },
                 r0email: {
-                    email: true
+                    email: true,
+                    required: true
                 },
                 r0tlf: {
-                    digits: true
+                    digits: true,
+                    required: true
                 }
 
             },
@@ -96,6 +104,13 @@
                 <input id="r0urb" name="r0urb">
             </fieldset>
                         
+                        
+             <fieldset>
+                <label for="r0urb">Establecimiento:</label>
+                 <?=$est ?>
+            </fieldset>
+            
+            
              <fieldset>
                 <label for="r0tlf">Edificio:</label>
                 <input id="r0edificio" name="r0edificio">

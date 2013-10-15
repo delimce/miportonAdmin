@@ -6,13 +6,13 @@ function _form() {
     ////combo de operadora
     $db->setTable("tbl_operadora_tlf");
     $db->getTableAllRecords("id,nombre", false, "nombre");
-    $operadora = Form::dbComboBox("r0operadora", $db, "nombre", "nombre");
+    $operadora = Form::dbComboBox("r0operadora", $db, "nombre", "nombre","Seleccione");
 
     $db = new ObjectDB();
     ////combo de clientes
     $db->setTable("tbl_establecimiento");
     $db->getTableAllRecords("tipo", false, "tipo");
-    $est = Form::dbComboBox("r0establecimiento", $db, "tipo", "tipo");
+    $est = Form::dbComboBox("r0establecimiento", $db, "tipo", "tipo","Seleccione");
 
 
     $db = new ObjectDB();
@@ -25,7 +25,7 @@ function _form() {
     ////combo de estados
     $db->setTable("tbl_estado");
     $db->getTableAllRecords("id,nombre", false, "nombre");
-    $estado = Form::dbComboBox("r0estado", $db, "nombre", "nombre");
+    $estado = Form::dbComboBox("r0estado", $db, "nombre", "nombre","Seleccione");
 
 
     $data['siteTitle'] = 'Registrar nueva Instalación';
