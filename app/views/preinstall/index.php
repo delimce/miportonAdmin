@@ -3,7 +3,6 @@
 
         $('#form1').validate({
             rules: {
-                
                 r0pais: {
                     required: true
                 },
@@ -41,7 +40,7 @@
                 },
                 r0cant_puestos: {
                     digits: true,
-                    min:1,
+                    min: 1,
                     required: true
                 }
 
@@ -66,7 +65,7 @@
                 success: function(data, status) {
                     data = $.trim(data);
 
-                   $(location).attr('href', '<?= Front::myUrl('preinstall/fin'); ?>');
+                    $(location).attr('href', '<?= Front::myUrl('preinstall/fin'); ?>');
 
                 }
             });
@@ -78,65 +77,61 @@
 </script>
 
 <article class="module width_half">
-    <header><h3>Formulario de preinstalación</h3></header>
+    <header><h3>Formulario de Preinstalación </h3></header>
 
     <form name="form1" id="form1">
         <div class="module_content">
 
-
             <fieldset>
                 <label for="r0pais">Pais:</label>
-                <?=$pais ?>
+                <?= $pais ?>
             </fieldset>
-            
-             <fieldset>
+
+            <fieldset>
                 <label for="r0estado">Estado:</label>
-                <?=$estado ?>
+                <?= $estado ?>
             </fieldset>
-            
+
             <fieldset>
                 <label for="r0urb">Ciudad:</label>
                 <input id="r0ciudad" name="r0ciudad">
             </fieldset>
-             
+
             <fieldset>
                 <label for="r0urb">Avenida:</label>
                 <input id="r0avenida" name="r0avenida">
             </fieldset>
-            
+
             <fieldset>
                 <label for="r0urb">Urbanización:</label>
                 <input id="r0urb" name="r0urb">
             </fieldset>
-                        
-                        
-             <fieldset>
+
+            <fieldset>
                 <label for="r0urb">Establecimiento:</label>
-                 <?=$est ?>
+                <?= $est ?>
             </fieldset>
-            
-            
-             <fieldset>
+
+            <fieldset>
                 <label for="r0tlf">Edificio:</label>
                 <input id="r0edificio" name="r0edificio">
             </fieldset>
-            
-            
-             <fieldset>
+
+            <fieldset>
                 <label for="r0cant_puestos">Cantidad aprox. de puestos:</label>
                 <input id="r0cant_puestos" name="r0cant_puestos">
             </fieldset>
-            
+
             <fieldset>
                 <label for="r0responsable">Nombre del contacto:</label>
                 <input id="r0responsable" name="r0responsable">
             </fieldset>
 
-             <fieldset>
+            <fieldset>
                 <label for="r0operador">Operadora:</label>
-                <?=$operadora ?>
+                <?= $operadora ?>
             </fieldset>
-            
+
 
             <fieldset>
                 <label for="r0tlf">Telefono:</label>
@@ -147,10 +142,10 @@
                 <label for="r0email">Email:</label>
                 <input id="r0email" name="r0email"  type="email">       
             </fieldset>
-            
-             <fieldset>
+
+            <fieldset>
                 <label for="r0tlf">Observaciones:</label>
-                 <textarea id="r0observaciones" name="r0observaciones"></textarea>
+                <textarea id="r0observaciones" name="r0observaciones"></textarea>
             </fieldset>
 
             <br>
