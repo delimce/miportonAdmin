@@ -469,6 +469,11 @@ margin-right: 0;
 float: left;
 }
 
+.width_half_middle {
+width: 50%;
+margin-right: 0;
+}
+
 .width_quarter {
 width: 26%;
 margin-right: 0;

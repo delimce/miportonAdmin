@@ -76,7 +76,7 @@
     });
 </script>
 
-<article class="module width_half">
+<article class="module width_half_middle">
     <header><h3>Formulario de Preinstalación </h3></header>
 
     <form name="form1" id="form1">
