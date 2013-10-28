@@ -41,6 +41,7 @@
                         success: function(html)
                         {
                             $("#cliente").html(html);
+                            $("#r0edificio_id").html('<option value="">seleccionar</option>');
                         }
                     });
 
