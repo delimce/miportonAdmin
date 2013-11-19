@@ -74,7 +74,6 @@
         });
 
 
-
         /**
          * *********************************
          */
@@ -147,6 +146,11 @@
             <fieldset>
                 <label for="r0capacidad">Capacidad aproximada (puestos):</label>
                 <input id="r0capacidad" name="r0capacidad" value="<?= $datos->getField("capacidad") ?>">
+            </fieldset>
+            
+             <fieldset>
+                <label>Gsm-Key asignado:</label>
+                <input readonly="yes" value="<?= $datos->getField("asignado") ?>"></input>
             </fieldset>
 
 
