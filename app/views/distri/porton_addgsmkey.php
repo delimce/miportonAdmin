@@ -74,6 +74,7 @@
         });
 
 
+
         /**
          * *********************************
          */
@@ -86,6 +87,7 @@
                 return false;
 
             var formData = $("#form1").serialize();
+            $('#submit').attr('disabled', 'disabled');
 
             $.ajax({
                 type: "POST",
@@ -95,7 +97,7 @@
                 success: function(data, status) {
                     data = $.trim(data);
 
-                    $("#mensaje").html(data);
+                    $(location).attr('href', '<?= Front::myUrl('distri/porton'); ?>');
 
                 }
             });
@@ -109,9 +111,9 @@
 
 <article class="module width_3_quarter">
 
-    <header><h3 class="tabs_involved">Editar Porton</h3>
+    <header><h3 class="tabs_involved">Crear Porton</h3>
         <ul class="tabs">
-            <li><a href="<?= Front::myUrl('distri/porton') ?>">Regresar</a></li>
+            <li><a href="javascript:history.back();">Regresar</a></li>
         </ul>
     </header>
 
@@ -125,34 +127,12 @@
                 <?= $franquicia ?>
             </fieldset>
 
-            <fieldset>
-                <label for="cliente">Pertenece al Cliente:</label><br>
-                <?= $cliente ?>
-            </fieldset>
-
-            <fieldset>
-                <label for="r0edificio_id">Edificio:</label>
-                <?= $edificio ?>
-            </fieldset>
-
-
-            <fieldset>
-                <label for="r0ubicacion_ref">Referencia:</label>
-                <input id="r0ubicacion_ref" name="r0ubicacion_ref" value="<?= $datos->getField("ubicacion_ref") ?>">
-                <input id="operacion" name="operacion" type="hidden" value="edit">
-                <input id="id" name="id" type="hidden" value="<?= $datos->getField("id") ?>">
-            </fieldset>
+      
 
             <fieldset>
                 <label for="r0capacidad">Capacidad aproximada (puestos):</label>
-                <input id="r0capacidad" name="r0capacidad" value="<?= $datos->getField("capacidad") ?>">
+                <input id="r0capacidad" name="r0capacidad">
             </fieldset>
-            
-             <fieldset>
-                <label>Gsm-Key asignado:</label>
-                <input readonly="yes" value="<?= $datos->getField("asignado") ?>"></input>
-            </fieldset>
-
 
             <div id="mensaje">&nbsp;</div>
 
@@ -162,7 +142,6 @@
         <footer>
             <div class="submit_link">
                 <input id="submit" type="submit" value="Guardar" class="alt_btn">
-                <input id="submit" onclick="location.href='<?= Front::myUrl('distri/porton_addgsmkey/'.$datos->getField("id")); ?>'" type="button" value="Asignar GSM-Key" class="alt_btn">
             </div>
         </footer>
 
