@@ -17,6 +17,15 @@ function _porton() {
     } else if ($operacion == "edit") { /// en caso de edit      
         $db->dataUpdate("r", "0", false, $_POST, "id = $ide");
         echo '<h4 class="alert_success">Edición efectuada con éxito</h4>';
+    } else if ($operacion == "asig") { /// en caso de edit      
+        
+        $portonId = Form::getVar("id", $_POST);
+        $gsmkeyId = Form::getVar("gsmkey", $_POST);
+        
+        $db->setSql(FactoryDao::insertPortonGsmKey($portonId, $gsmkeyId));
+        $db->executeQuery();
+        
+        echo '<h4 class="alert_success">Se ha asignado el GSM-Key al porton</h4>';
     } else { //mostrar lista con el id de la franquicia
         $db->setSql(FactoryDao::portonList((Security::getFranquiciaID() > 0 ? Security::getFranquiciaID() : 0)));
         $db->executeQuery();

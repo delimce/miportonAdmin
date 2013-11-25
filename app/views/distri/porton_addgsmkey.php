@@ -3,82 +3,16 @@
 
         $('#form1').validate({
             rules: {
-                r0franquicia_id: {
+                gsmkey: {
                     required: true
-                },
-                cliente: {
-                    required: true
-                },
-                r0edificio_id: {
-                    required: true
-                },
-                r0ubicacion_ref: {
-                    required: true
-                }, r0capacidad: {
-                    digits: true
                 }
             },
             errorElement: "div"
         });
 
-
-        ///creando el select dinamicamente
-        $("#r0franquicia_id").change(function()
-        {
-            var id = $(this).val();
-            var dataString = 'id=' + id;
-            if (id == "") {
-                $("#cliente").html('');
-                return false;
-            }
-
-            $.ajax
-                    ({
-                        type: "POST",
-                        url: "<?= Front::myUrl('distri/selectCliente'); ?>",
-                        data: dataString,
-                        cache: false,
-                        success: function(html)
-                        {
-                            $("#cliente").html(html);
-                            $("#r0edificio_id").html('<option value="">seleccionar</option>');
-                        }
-                    });
-
-        });
-
-
-
-        ///creando el select dinamicamente
-        $("#cliente").change(function()
-        {
-            var id = $(this).val();
-            var dataString = 'id=' + id;
-            if (id == "") {
-                $("#r0edificio_id").html('');
-                return false;
-            }
-
-            $.ajax
-                    ({
-                        type: "POST",
-                        url: "<?= Front::myUrl('distri/selectEdificio'); ?>",
-                        data: dataString,
-                        cache: false,
-                        success: function(html)
-                        {
-                            $("#r0edificio_id").html(html);
-                        }
-                    });
-
-        });
-
-
-
         /**
          * *********************************
          */
-
 
         $("#submit").click(function() {
 
@@ -86,19 +20,18 @@
             if (!$("#form1").valid())
                 return false;
 
+
             var formData = $("#form1").serialize();
             $('#submit').attr('disabled', 'disabled');
 
-            $.ajax({
+             $.ajax({
                 type: "POST",
                 url: "<?= Front::myUrl('distri/porton'); ?>",
                 cache: false,
                 data: formData,
                 success: function(data, status) {
                     data = $.trim(data);
-
-                    $(location).attr('href', '<?= Front::myUrl('distri/porton'); ?>');
-
+                    $("#mensaje").html(data);
                 }
             });
 
@@ -109,7 +42,7 @@
 </script>
 
 
-<article class="module width_3_quarter">
+<article class="module width_full">
 
     <header><h3 class="tabs_involved">Crear Porton</h3>
         <ul class="tabs">
@@ -122,18 +55,38 @@
         <div class="module_content">
 
 
-            <fieldset style="display: <?= $visual ?>">
-                <label for="r0franquicia_id">Franquicia:</label>
-                <?= $franquicia ?>
-            </fieldset>
-
-      
-
             <fieldset>
-                <label for="r0capacidad">Capacidad aproximada (puestos):</label>
-                <input id="r0capacidad" name="r0capacidad">
+                <label>Asignar GSM-KEY AL PORTON <?= !empty($referencia) ? '(' . $referencia . ')' : ''; ?></label>
             </fieldset>
 
+            <?php if ($datos->getNumRows() > 0) { ?>
+                <fieldset>
+
+                    <div style="text-align: center; font-weight: bold; margin-bottom: 12px;">
+                        <div style=" width: 4%; float: left; display: block; ">&nbsp;</div>&nbsp; 
+                        <div style="float: left; width: 20%; display: block; ">Modelo</div>&nbsp;  
+                        <div style=" float: left; width: 20%; display: block;">Imei</div>&nbsp; 
+                        <div style="width: 20%; display: block; float: left">Telefono</div> &nbsp; 
+                        <div style="width: 20%; display: block; float: left">Capacidad</div> 
+
+                    </div>
+
+                    <?php while ($row = $datos->getRowFields()) { ?>
+
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div style=" width: 4%; float: left; display: block; "><input type="radio" name="gsmkey" id="gsmkey" value="<?= $row->id ?>" /></div>&nbsp; 
+                            <div style="float: left; width: 20%; display: block; "><?= empty($row->modelo) ? "-" : $row->modelo ?></div>&nbsp;  
+                            <div style=" float: left; width: 20%; display: block;"><?= $row->imei ?></div>&nbsp; 
+                            <div style="width: 20%; display: block; float: left"><?= $row->tlf ?></div> &nbsp; 
+                            <div style="width: 20%; display: block; float: left"><?= $row->capacidad ?></div> 
+
+                        </div>
+
+                    <?php } ?>
+                </fieldset>
+            <?php } ?>
+            <input id="id" name="id" type="hidden" value="<?=$ide ?>">
+             <input id="operacion" name="operacion" type="hidden" value="asig">
             <div id="mensaje">&nbsp;</div>
 
             <br>

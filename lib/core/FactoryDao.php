@@ -84,7 +84,6 @@ class FactoryDao {
         return "call sp_porton_getdatabyid($idporton , $franquicia) ";
     }
 
-    
     /**
      * trae la lista de los administradores de edificios por franquicia
      * @param type $franquicia
@@ -96,19 +95,42 @@ class FactoryDao {
         return "call sp_adminEdif_list($franquicia) ";
     }
 
-
     /**
      * trae la lista de edificios por franquicia id, si se le pasa el id del admin trae los del administrador
      * @param type $franquicia
      * @return type
      */
-    static public function getEdifByFranquicia($franquicia,$adminId){
-        
+    static public function getEdifByFranquicia($franquicia, $adminId) {
+
         return "call sp_edifbyfranq_list($franquicia,$adminId) ";
-        
     }
 
-            static public function getUsersList($myId = false) {
+    
+    /**
+     * trae una lista de gsmkey sin usar para asignarle al porton (por id de edificio)
+     * @param type $edifid
+     * @return type
+     */
+    static public function getGsmKeybyEdif($edifid) {
+
+        return "call sp_edifgsmkey_list($edifid) ";
+    }
+
+    
+    /**
+     * inserta un gsmkey para un porton
+     * @param type $portonId
+     * @param type $gsmkeyId
+     * @return type
+     */
+     static public function insertPortonGsmKey($portonId, $gsmkeyId) {
+
+        return "call sp_insert_porton_gsmkey($portonId,$gsmkeyId) ";
+    }
+    
+    
+    
+    static public function getUsersList($myId = false) {
 
         $query = "SELECT
                 u.id,
