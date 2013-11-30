@@ -71,11 +71,11 @@
 
             return false;
         });
-        
-        
-        
-        
-        
+
+
+
+
+
 
     });
 </script>
@@ -95,19 +95,13 @@
             <fieldset>
                 <label for="r0franquicia_id">Franquicia:</label>
                 <?= $franquicia ?>
-                 <input id="operacion" name="operacion" type="hidden" value="edit">
+                <input id="operacion" name="operacion" type="hidden" value="edit">
                 <input id="id" name="id" type="hidden" value="<?= $datos->getField("id") ?>">
             </fieldset> 
 
             <fieldset>
                 <label for="r0nombre">Nombre:</label>
                 <input id="r0nombre" name="r0nombre" value="<?= $datos->getField("nombre") ?>">
-            </fieldset>
-
-
-            <fieldset>
-                <label for="r0usuario">Usuario:</label>
-                <input id="r0usuario" name="r0usuario" value="<?= $datos->getField("usuario") ?>">
             </fieldset>
 
             <fieldset>
@@ -119,6 +113,12 @@
                 <label for="r0email">Email:</label>
                 <input id="r0email" name="r0email"  type="email" value="<?= $datos->getField("email") ?>">
             </fieldset>
+
+
+            <fieldset>
+                <label for="r0usuario">Usuario:</label>
+                <input id="r0usuario" name="r0usuario" value="<?= $datos->getField("usuario") ?>">
+            </fieldset> 
 
             <fieldset>
                 <label for="clave">Contraseña:</label>

@@ -13,6 +13,8 @@ function _edificio() {
     if ($operacion == "del") { ///caso de borrar registros
         $db->deleteWhere("id = $ide");
     } else if ($operacion == "new") { /// en caso de insert
+        $_POST["r0fecha_creado"] = Calendar::getDatabaseDateTime();
+        $_POST["r0creado_por"] = Security::getCreador();
         $db->dataInsert("r", "0", false, $_POST);
     } else if ($operacion == "edit") { /// en caso de edit      
         $db->dataUpdate("r", "0", false, $_POST, "id = $ide");

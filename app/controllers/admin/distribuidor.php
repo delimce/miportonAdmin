@@ -13,6 +13,8 @@ function _distribuidor() {
     if ($operacion == "del") { ///caso de borrar registros
         $db->deleteWhere("id = $ide");
     } else if ($operacion == "new") { /// en caso de insert  
+        $_POST["r0fecha_creado"] = Calendar::getDatabaseDateTime();
+        $_POST["r0creado_por"] = Security::getCreador();
         $clave1 = Form::getVar("clave", $_POST);
         $_POST["r0clave"] = md5($clave1); ////cifrando clave
         $db->dataInsert("r", "0", false, $_POST);

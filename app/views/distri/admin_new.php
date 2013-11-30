@@ -71,11 +71,11 @@
 
             return false;
         });
-        
-        
-        
-        
-        
+
+
+
+
+
 
     });
 </script>
@@ -104,11 +104,6 @@
 
 
             <fieldset>
-                <label for="r0usuario">Usuario:</label>
-                <input id="r0usuario" name="r0usuario">
-            </fieldset>
-
-            <fieldset>
                 <label for="r0tlf">Telefono:</label>
                 <input id="r0tlf" name="r0tlf">
             </fieldset>
@@ -117,6 +112,13 @@
                 <label for="r0email">Email:</label>
                 <input id="r0email" name="r0email"  type="email">
             </fieldset>
+
+
+            <fieldset>
+                <label for="r0usuario">Usuario:</label>
+                <input id="r0usuario" name="r0usuario">
+            </fieldset>
+
 
             <fieldset>
                 <label for="clave">Contraseña:</label>

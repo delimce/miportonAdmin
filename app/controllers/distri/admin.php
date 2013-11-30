@@ -22,6 +22,8 @@ function _admin() {
         $db->setField("usuario", $datos['usuario']);
         $db->setField("clave", md5($datos['clave']));
         $db->setField("activo", $datos['activo']);
+        $db->setField("fecha_creado", Calendar::getDatabaseDateTime());
+        $db->setField("creado_por", Security::getCreador());
 
         $edificios = $_POST['select']; ////en este caso porque viene un array de javascript
 

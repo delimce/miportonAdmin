@@ -8,22 +8,21 @@ function _gsmkey() {
     $db->setTable("tbl_gsmkey");
 
     $operacion = Form::getVar("operacion"); ////para la desicion
-    $ide = Form::getVar("id",$_POST);
+    $ide = Form::getVar("id", $_POST);
     ///para el crud
     if ($operacion == "del") { ///caso de borrar registros
         $db->deleteWhere("id = $ide");
     } else if ($operacion == "new") { /// en caso de insert
         $_POST["r0admin_id"] = Security::getUserID();
-        $clave = Form::getVar("r0clave",$_POST);
+        $_POST["r0fecha_creado"] = Calendar::getDatabaseDateTime();
+        $clave = Form::getVar("r0clave", $_POST);
         $_POST["r0clave"] = convert_uuencode($clave); ///cifrando clave gsmkey
         $db->dataInsert("r", "0", false, $_POST);
     } else if ($operacion == "edit") { /// en caso de edit  
-        
-         $clave = Form::getVar("r0clave",$_POST);
+        $clave = Form::getVar("r0clave", $_POST);
         $_POST["r0clave"] = convert_uuencode($clave); ///cifrando clave gsmkey
         $db->dataUpdate("r", "0", false, $_POST, "id = $ide");
-          echo '<h4 class="alert_success">Edición efectuada con éxito</h4>';
-          
+        echo '<h4 class="alert_success">Edición efectuada con éxito</h4>';
     } else { //mostrar lista
         $db->setSql(FactoryDao::gsmKeyList());
         $db->executeQuery();

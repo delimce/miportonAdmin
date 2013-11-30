@@ -56,6 +56,16 @@ class Security {
         $_SESSION["USERPROFILENAME"] = $userProfileName;
     }
 
+    /**
+     * trae el perfil y el id del usuario logueado
+     * @return type
+     */
+    static public function getCreador(){
+        
+        return $_SESSION["USERPROFILENAME"].'_'.$_SESSION["USERID"];
+    }
+    
+    
     ////opcional para la franquicia
 
     static public function setFranquiciaID($franquicia) {

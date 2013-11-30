@@ -377,6 +377,11 @@ aside#sidebar {
     background: url(../images/template/icn_secure.png) no-repeat center left;
 }
 
+#sidebar li.icn_cell a {
+    background: url(../images/template/icn_cell.png) no-repeat center left;
+}
+
+
 #sidebar p {
     color: #666666;
     padding-left: 6%;
