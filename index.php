@@ -10,6 +10,9 @@ include_once 'config/setup.php';
 
 Security::initSession();
 
+///zona horaria para la aplicacion
+date_default_timezone_set(AV_defaultTimeZone);
+
 /////variable de titulo del sitio
 Security::setSessionVar("TITTLE", "MiPorton.net     Admin - ");
 
