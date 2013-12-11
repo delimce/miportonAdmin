@@ -102,7 +102,7 @@
             </fieldset>
 
             <fieldset>
-                <label for="r0nombre">Nombre:</label>
+                <label for="r0nombre">Nombre edificio:</label>
                 <input id="r0nombre" name="r0nombre">
             </fieldset>
 

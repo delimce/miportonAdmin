@@ -8,7 +8,7 @@ function _porton_addgsmkey($id = false) {
 
     $db2->setTable("tbl_porton");
     $db2->getTableFields("*", "id = ".$id);
-   echo $edificio = $db2->getField("edificio_id");
+    $edificio = $db2->getField("edificio_id");
     $franquicia = $db2->getField("franquicia_id");
     $porton = $db2->getField("ubicacion_ref");
     

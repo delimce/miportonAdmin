@@ -466,11 +466,11 @@ section#main {
 /* Module Widths */
 
 .width_full {
-    width: 80%;
+    width: 90%;
 }
 
 .width_half {
-    width: 46%;
+    width: 45%;
     margin-right: 0;
     float: left;
 }
@@ -481,13 +481,13 @@ section#main {
 }
 
 .width_quarter {
-    width: 26%;
+    width: 32%;
     margin-right: 0;
     float: left;
 }
 
 .width_3_quarter {
-    width: 66%;
+    width: 74%;
     margin-right: 0;
     float: left;
 }

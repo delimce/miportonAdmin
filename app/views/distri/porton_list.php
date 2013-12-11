@@ -14,7 +14,8 @@
                         <tr> 
                             <th>Franquicia</th>  
                             <th>Cliente</th> 
-                            <th>Edificio</th> 
+                            <th>Edificio</th>
+                            <th>GSM&nbsp;Key</th> 
                             <th>Referencia</th>                            
                             <th>&nbsp;</th> 
                         </tr> 
@@ -25,6 +26,7 @@
                                 <td><?php echo $row->franq ?></td> 
                                 <td><?php echo $row->cliente ?></td> 
                                 <td><?php echo $row->edificio ?></td> 
+                                <td><?php echo $row->gsmkey ?></td> 
                                 <td><?php echo $row->ubicacion_ref ?></td>    
                                 <td><input type="image" src="<?= Front::myUrl('images/template/icn_edit.png') ?>" title="Editar" onclick="location.replace('<?= Front::myUrl("distri/porton_edit/$row->id") ?>')">
         <!--                                    <input type="image" src="<?= Front::myUrl('images/template/icn_trash.png') ?>" title="Borrar">-->

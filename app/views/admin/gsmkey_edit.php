@@ -63,7 +63,7 @@
 
 <article class="module width_half">
 
-    <header><h3 class="tabs_involved">Crear GSM-KEY</h3>
+    <header><h3 class="tabs_involved">Editar GSM-KEY</h3>
         <ul class="tabs">
             <li><a href="<?= Front::myUrl('admin/gsmkey') ?>">Regresar</a></li>
         </ul>

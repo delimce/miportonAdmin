@@ -14,17 +14,21 @@
          * *********************************
          */
 
+
         $("#submit").click(function() {
 
             //validando
             if (!$("#form1").valid())
                 return false;
 
+            if (!$('#gsmkey').length) { ///validando que exista
+                return false;
+            }
 
             var formData = $("#form1").serialize();
             $('#submit').attr('disabled', 'disabled');
 
-             $.ajax({
+            $.ajax({
                 type: "POST",
                 url: "<?= Front::myUrl('distri/porton'); ?>",
                 cache: false,
@@ -84,9 +88,13 @@
 
                     <?php } ?>
                 </fieldset>
-            <?php } ?>
-            <input id="id" name="id" type="hidden" value="<?=$ide ?>">
-             <input id="operacion" name="operacion" type="hidden" value="asig">
+                <?php
+            } else {
+                print "No existen dispositivos GSM-KEY disponibles, comuniquese con el proveedor del sistema";
+            }
+            ?>
+            <input id="id" name="id" type="hidden" value="<?= $ide ?>">
+            <input id="operacion" name="operacion" type="hidden" value="asig">
             <div id="mensaje">&nbsp;</div>
 
             <br>

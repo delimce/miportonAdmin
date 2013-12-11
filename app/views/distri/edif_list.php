@@ -26,7 +26,7 @@
                                 <td><?php echo $row->franquicia ?></td> 
                                 <td><?php echo $row->cliente ?></td> 
                                 <td><?php echo $row->edificio ?></td> 
-                                <td align="center"><?php echo $row->est ?></td> 
+                                <td><?php echo $row->est ?></td> 
                                 <td><?php echo $row->zona ?></td>    
                                 <td><input type="image" src="<?= Front::myUrl('images/template/icn_edit.png') ?>" title="Editar" onclick="location.replace('<?= Front::myUrl("distri/edificio_edit/$row->id") ?>')">
         <!--                                    <input type="image" src="<?= Front::myUrl('images/template/icn_trash.png') ?>" title="Borrar">-->
