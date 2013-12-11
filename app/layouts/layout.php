@@ -84,8 +84,8 @@
                 </ul>
             <?php } ?>
 
-
-            <footer>
+                             
+                <footer>
                 <hr />
                 <p><strong>Copyright &copy; <?= date("Y") ?> MiPorton.net</strong></p>
             </footer>
@@ -95,11 +95,19 @@
 
             <?php echo (isset($body) && is_array($body)) ? implode("\n", $body) : '' ?>
 
-            <p>&nbsp;</p>
-
+            
+            <p style="float: left; position: relative; width: 90%; height: 15px; ">
+                &nbsp;
+              </p>
+            
+            
         </section>
-
+       
 
     </body>
+    
+
+    
+    
 
 </html>
