@@ -90,8 +90,6 @@
                 <label for="clave2">Repita contraseña:</label>
                 <input id="clave2" name="clave2" type="password" value="<?= $datos->getField("clave") ?>">
             </fieldset>
-
-            
                         
             <div id="mensaje">&nbsp;</div>
 
@@ -101,7 +99,7 @@
         <footer>
             <div class="submit_link">
                 <input id="submit" type="submit" value="Guardar" class="alt_btn">
-                <input type="submit" value="Reset">
+                <input type="reset" value="Deshacer">
             </div>
         </footer>
 
